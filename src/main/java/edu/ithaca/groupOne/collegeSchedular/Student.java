@@ -6,6 +6,7 @@ public class Student {
     private String password;
     private int id;
     private Schedule[] schedules; //think about making this something other than an array - map with key as name or something
+    private int numCredits;
     
     /**
      * Constructor method
@@ -79,6 +80,14 @@ public class Student {
      * @return int : the id of the student
      */
     public int getId(){
+        return -1;
+    }
+
+    /**
+     * Gets the number of credits the student is currently unrolled in
+     * @return int : the number of credits the student is currently enrolled in
+     */
+    public int getNumCredits(){
         return -1;
     }
 }
