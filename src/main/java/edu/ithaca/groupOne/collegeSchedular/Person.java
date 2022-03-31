@@ -8,7 +8,7 @@ public abstract class Person {
         if(enteredID != id){
             return false;
         }
-        else if(enteredPassword.compareTo(password) == 0){
+        else if(enteredPassword.compareTo(password) != 0){
             return false;
         }
 
