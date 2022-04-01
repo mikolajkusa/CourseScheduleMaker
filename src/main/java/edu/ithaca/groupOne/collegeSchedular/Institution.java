@@ -47,7 +47,7 @@ public class Institution {
         } else if (type == '2'){
             return professors.get(ID);
         } else {
-            return admin.get(ID);
+            return admins.get(ID);
         }
     }
 
@@ -68,11 +68,11 @@ public class Institution {
         char type = fID.charAt(0);
         String ID = fID.substring(1);
         if (type == '1'){
-            students.put(ID, person);
+            students.put(ID, (Student) person);
         } if (type == '2'){
-            professors.put(ID, person);
+            professors.put(ID, (Professor) person);
         } else {
-            admins.put(ID, person);
+            admins.put(ID, (Admin) person);
         }
     }
 
@@ -86,10 +86,10 @@ public class Institution {
     }
 
     public static String genID(int type){
-
+        return null;
     }
 
     public static boolean isIDValid(String ID){
-
+        return false;
     }
 }

@@ -1,5 +1,5 @@
 package edu.ithaca.groupOne.collegeSchedular;
 
-public class Admin {
+public class Admin extends Person{
     
 }
