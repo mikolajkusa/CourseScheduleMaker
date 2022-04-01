@@ -6,10 +6,10 @@ import java.util.Collection;
 import java.util.HashMap;
 
 public class Institution {
-    private HashMap<Integer, Student> students = new HashMap<>();
-    private HashMap<Integer, Professor> professors = new HashMap<>();
-    private HashMap<Integer, Admin> admins = new HashMap<>();
-    private HashMap<Integer, Course> courses = new HashMap<>();
+    private HashMap<String, Student> students = new HashMap<>();
+    private HashMap<String, Professor> professors = new HashMap<>();
+    private HashMap<String, Admin> admins = new HashMap<>();
+    private HashMap<String, Course> courses = new HashMap<>();
     private ArrayList<String> majors = new ArrayList<>(Arrays.asList
         (
         "Computer Science",
@@ -36,20 +36,18 @@ public class Institution {
     }
 
     /**
-     * @param ID
+     * @param fID
      * @return Person assosiated with ID
      */
-    public Person getPerson(int ID){
-        int type = ID;
-        while (type > 9) {
-            type /= 10;
-        }
-        if (type == 1){
+    public Person getPerson(String fID){
+        char type = fID.charAt(0);
+        String ID = fID.substring(1);
+        if (type == '1'){
             return students.get(ID);
-        } else if (type == 2){
+        } else if (type == '2'){
             return professors.get(ID);
         } else {
-            return admins.get(ID);
+            return admin.get(ID);
         }
     }
 
@@ -57,7 +55,7 @@ public class Institution {
      * @param cID
      * @return Course assosiated with cID
      */
-    public Course getCourse(int cID){
+    public Course getCourse(String cID){
         return courses.get(cID);
     }
 
@@ -66,14 +64,12 @@ public class Institution {
      * @param person
      * @post adds ID(key) and person(value) to either studnets, professors, or admins HashMap
      */
-    public void addPerson(int ID, Person person){
-        int type = ID;
-        while (type > 9){
-            type /= 10;
-        }
-        if (type == 1){
+    public void addPerson(String fID, Person person){
+        char type = fID.charAt(0);
+        String ID = fID.substring(1);
+        if (type == '1'){
             students.put(ID, person);
-        } else if (type == 2){
+        } if (type == '2'){
             professors.put(ID, person);
         } else {
             admins.put(ID, person);
@@ -85,11 +81,15 @@ public class Institution {
      * @param course
      * @post adds cID(key) and course(value) to course HashMap
      */
-    public void addCourse(int cID, Course course){
+    public void addCourse(String cID, Course course){
         courses.put(cID, course);
     }
 
-    public Collection getStudents(){
+    public static String genID(int type){
+
+    }
+
+    public static boolean isIDValid(String ID){
 
     }
 }
