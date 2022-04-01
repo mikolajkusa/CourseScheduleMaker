@@ -32,8 +32,34 @@ public class PersonTest {
     @Test
     void isIDValidTest(){
         //Valid ID
-        assertTrue(Person.isIDValid("1234567"));
+        assertTrue(Person.isIDValid("123456"));
+        assertTrue(Person.isIDValid("123456"));
 
+        //Wrong amount of digits
         assertFalse(Person.isIDValid(""));
+        assertFalse(Person.isIDValid("12345"));
+        assertFalse(Person.isIDValid("1234567"));
+        assertFalse(Person.isIDValid("11111111111111"));
+        assertFalse(Person.isIDValid("123"));
+
+
+        //First digit is not 1, 2, or 3
+        assertFalse(Person.isIDValid("400000"));
+        assertFalse(Person.isIDValid("012345"));
+
+
+        //Non numeric digits
+        assertFalse(Person.isIDValid("#123456"));
+        assertFalse(Person.isIDValid("#12345"));
+
+        assertFalse(Person.isIDValid(" 12345"));
+        assertFalse(Person.isIDValid(" 123456"));
+
+        assertFalse(Person.isIDValid("12345-"));
+        assertFalse(Person.isIDValid("12345#"));
+        
+        assertFalse(Person.isIDValid(" 12_345"));
+        assertFalse(Person.isIDValid(" 123%56"));
+
     }
 }
