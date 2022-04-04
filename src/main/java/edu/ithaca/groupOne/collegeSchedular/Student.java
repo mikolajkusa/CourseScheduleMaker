@@ -4,18 +4,15 @@ public class Student extends Person {
 
     private String major;
     private String password;
-    private int id;
     private Schedule[] schedules; //think about making this something other than an array - map with key as name or something
     private int numCredits;
     
     /**
      * Constructor method
-     * @param id : int, the id of the student
      * @param major : String, the major of the student
      * @param password : String, the password for the student login
      */
-    public Student(int id, String major, String password){
-        this.id = id;
+    public Student(String major, String password){
         this.major = major;
         this.password = password;
     }
@@ -75,14 +72,6 @@ public class Student extends Person {
      */
     public String getPassword(){
         return null;
-    }
-
-    /**
-     * Gets the id of the student
-     * @return int : the id of the student
-     */
-    public int getId(){
-        return -1;
     }
 
     /**
