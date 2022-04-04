@@ -15,7 +15,9 @@ public class Student {
      * @param password : String, the password for the student login
      */
     public Student(int id, String major, String password){
-
+        this.id = id;
+        this.major = major;
+        this.password = password;
     }
 
     /**
@@ -56,7 +58,7 @@ public class Student {
      * @return String : the major of the student
      */
     public String getMajor(){
-        return null;
+        return major;
     }
 
     /**
