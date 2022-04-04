@@ -8,7 +8,7 @@ public class StudentTest {
     
     @Test
     void createScheduleTest(){
-        
+
     }
 
     @Test
@@ -23,7 +23,13 @@ public class StudentTest {
 
     @Test
     void changeMajorTest(){
-
+        Student student = new Student(101, "computer science", "password");
+        assertTrue(student.getMajor().equals("computer science")); //equivalent class - first major set when made student
+        student.changeMajor("physics");
+        assertTrue(student.getMajor().equals("physics")); //equivalence class - change major to valid major
+        student.changeMajor("BiolOGY");
+        assertTrue(student.getMajor().equals("biology")); //equivalence class - capitol letters in new major
+        assertThrows(IllegalArgumentException.class, ()-> student.changeMajor("asdfhugabb")); //equivalence class - invalid major
     }
 
     @Test

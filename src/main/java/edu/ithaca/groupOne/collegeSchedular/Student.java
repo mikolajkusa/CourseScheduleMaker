@@ -47,7 +47,7 @@ public class Student {
      * Changes the students major
      * @param newMajor : String the new major of the student
      */
-    public void changeMajor(String newMajor){
+    public void changeMajor(String newMajor) throws IllegalArgumentException{
 
     }
 
