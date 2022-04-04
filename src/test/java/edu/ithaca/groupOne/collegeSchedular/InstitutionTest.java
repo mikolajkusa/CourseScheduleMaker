@@ -6,7 +6,7 @@ public class InstitutionTest {
     
     @Test
     public void addGetPersonTest(){
-
+        
     }
 
     @Test
