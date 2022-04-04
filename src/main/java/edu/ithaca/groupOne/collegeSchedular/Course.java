@@ -28,7 +28,13 @@ public class Course {
      * @throws CourseUnavailableException if the course availability is set to false
      */
     public void removeStudent() throws CourseEmptyException, CourseUnavailableException{
-
+        if(!isAvailable){
+            throw new CourseUnavailableException("This course is unavailable");
+        }
+        else if(studentCount == 0){
+            throw new CourseEmptyException("Can't remove student from an empty course");
+        }
+        studentCount--;
     }
 
     /**
@@ -37,6 +43,13 @@ public class Course {
      * @throws StudentMaximumExceededException if the student maximum is reached
      */
     public void addStudent() throws CourseUnavailableException, StudentMaximumExceededException{
+        if(!isAvailable){
+            throw new CourseUnavailableException("This course is unavailable");
+        }
+        else if(studentCount == maxStudentCount){
+            throw new StudentMaximumExceededException("Course is already full.");
+        }
+        studentCount++;
 
     }
 
@@ -75,8 +88,14 @@ public class Course {
     public void setMaxStudentCount(int maxStudentCount){
         this.maxStudentCount = maxStudentCount;
     }
-
+    /**
+     * sets availability of course. Sets student count to zero if status is false.
+     * @param status
+     */
     public void setAvailability(boolean status){
+        if(!status){
+            studentCount = 0;
+        }
         isAvailable = status;
     }
 
