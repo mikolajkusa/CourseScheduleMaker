@@ -1,6 +1,8 @@
 package edu.ithaca.groupOne.collegeSchedular;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -32,7 +34,31 @@ public class InstitutionTest {
 
     @Test
     public void isIDValidTest(){
-        
+
+        //valid student ID
+        assertTrue(Institution.isIDValid("123456"));
+        //valid professor ID
+        assertTrue(Institution.isIDValid("223456"));
+        //valid admin ID
+        assertTrue(Institution.isIDValid("323456"));
+
+        //invalid identifier
+        assertFalse(Institution.isIDValid("423456"));
+        //too short
+        assertFalse(Institution.isIDValid("12345"));
+        //too long
+        assertFalse(Institution.isIDValid("1234567"));
+        //contains non-number char
+        assertFalse(Institution.isIDValid("123d56"));
+        assertFalse(Institution.isIDValid("1-3456"));
+        assertFalse(Institution.isIDValid("1234\\56"));
+        //identifier is non-number char
+        assertFalse(Institution.isIDValid("a23456"));
+        assertFalse(Institution.isIDValid("*23456"));
+        assertFalse(Institution.isIDValid("\\23456"));
+        //ID already exists
+        Institution.addPerson("123456", new Student());
+        assertFalse(Institution.isIDValid("123456"));
     }
 
     @Test
