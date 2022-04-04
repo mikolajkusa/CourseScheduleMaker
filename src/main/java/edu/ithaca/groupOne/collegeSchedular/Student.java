@@ -1,6 +1,6 @@
 package edu.ithaca.groupOne.collegeSchedular;
 
-public class Student {
+public class Student extends Person {
 
     private String major;
     private String password;
