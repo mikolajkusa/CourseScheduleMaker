@@ -1,8 +1,8 @@
 package edu.ithaca.groupOne.collegeSchedular;
 
 public abstract class Person {
-    String id;
-    String password;
+   protected String id;
+    protected String password;
 
     /**
      * Returns whether or not the entered id and password match the objects id and password
