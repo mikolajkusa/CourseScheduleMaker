@@ -27,7 +27,8 @@ public class Institution {
      */
     public static boolean checkMajor(String major){
         for (String x : majors){
-            if (x == major){
+            x = x.toLowerCase();
+            if (x.equals(major)){
                 return true;
             }
         }

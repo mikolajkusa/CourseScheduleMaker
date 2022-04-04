@@ -47,7 +47,13 @@ public class Student extends Person {
      * @param newMajor : String the new major of the student
      */
     public void changeMajor(String newMajor) throws IllegalArgumentException{
-
+        newMajor = newMajor.toLowerCase();
+        if (Institution.checkMajor(newMajor)){
+            this.major = newMajor;
+        }
+        else{
+            throw new IllegalArgumentException();
+        }
     }
 
     /**
