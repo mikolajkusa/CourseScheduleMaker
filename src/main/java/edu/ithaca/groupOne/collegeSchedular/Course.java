@@ -1,3 +1,4 @@
+
 package edu.ithaca.groupOne.collegeSchedular;
 
 public class Course {
@@ -21,12 +22,21 @@ public class Course {
         isAvailable = false;
         this.timeSlot = timeSlot;
     }
-    
-    public void removeStudent(){
+    /**
+     * Decrements the student count for a course
+     * @throws CourseEmptyException if student count is zero
+     * @throws CourseUnavailableException if the course availability is set to false
+     */
+    public void removeStudent() throws CourseEmptyException, CourseUnavailableException{
 
     }
 
-    public void addStudent(){
+    /**
+     * Increments the student count for a class
+     * @throws CourseUnavailableException if the course availability is set to flase
+     * @throws StudentMaximumExceededException if the student maximum is reached
+     */
+    public void addStudent() throws CourseUnavailableException, StudentMaximumExceededException{
 
     }
 
@@ -60,5 +70,29 @@ public class Course {
     
     public String getTimeSlot(){
         return timeSlot;
+    }
+
+    public void setMaxStudentCount(int maxStudentCount){
+        this.maxStudentCount = maxStudentCount;
+    }
+
+    public void setAvailability(boolean status){
+        isAvailable = status;
+    }
+
+    public void setSemester(String semester){
+        this.semester = semester;
+    }
+
+    public void setTimeSlot(String timeSlot){
+        this.timeSlot = timeSlot;
+    }
+
+    public void setMajor(String major){
+        this.major = major;
+    }
+
+    public void setCredits(int credits){
+        this.credits = credits;
     }
 }
