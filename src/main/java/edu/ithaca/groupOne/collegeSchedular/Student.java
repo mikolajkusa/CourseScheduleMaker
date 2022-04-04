@@ -8,7 +8,7 @@ public class Student extends Person {
     private int numCredits;
     
     /**
-     * Constructor method
+     * Constructor method - assumes major is already valid, do we want to change this?
      * @param major : String, the major of the student
      * @param password : String, the password for the student login
      */

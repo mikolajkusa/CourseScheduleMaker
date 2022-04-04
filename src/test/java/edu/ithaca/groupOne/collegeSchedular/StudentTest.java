@@ -34,6 +34,8 @@ public class StudentTest {
 
     @Test
     void getterTests(){
-        
+        Student student = new Student("physics", "password");
+        assertTrue(student.getPassword().equals("password"));
+        assertTrue(student.getMajor().equals("physics"));
     }
 }
