@@ -77,7 +77,7 @@ public class Student extends Person {
      * @return String : the password of the student
      */
     public String getPassword(){
-        return null;
+        return password;
     }
 
     /**
