@@ -3,7 +3,6 @@ package edu.ithaca.groupOne.collegeSchedular;
 public class Student extends Person {
 
     private String major;
-    private String password;
     private Schedule[] schedules; //think about making this something other than an array - map with key as name or something
     private int numCredits;
     
