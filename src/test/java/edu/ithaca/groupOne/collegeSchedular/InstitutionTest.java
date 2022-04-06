@@ -2,6 +2,7 @@ package edu.ithaca.groupOne.collegeSchedular;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
@@ -66,6 +67,12 @@ public class InstitutionTest {
         String id1 = Institution.genID(1);
         String id2 = Institution.genID(2);
         String id3 = Institution.genID(3);
+
+        //Invalid Person type
+        assertThrows(IllegalArgumentException.class, ()-> Institution.genID(0));
+        assertThrows(IllegalArgumentException.class, ()-> Institution.genID(4));
+        assertThrows(IllegalArgumentException.class, ()-> Institution.genID(-1));
+        assertThrows(IllegalArgumentException.class, ()-> Institution.genID(999));
 
         //6 digit length
         assertEquals(id1.length(), 6);
