@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class PersonTest {
     @Test
     void loginTest(){
-        Student s = new Student("1000", "bugatti25");
+        Student s = new Student("1000", "physics", "bugatti25");
 
         //both match
         assertTrue(s.login("1000", "bugatti25"));
