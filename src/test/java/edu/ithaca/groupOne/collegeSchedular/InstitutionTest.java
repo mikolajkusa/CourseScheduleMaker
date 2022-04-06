@@ -63,6 +63,85 @@ public class InstitutionTest {
 
     @Test
     public void genIDTest(){
+        String ID01 = Institution.genID(1); 
+        assertTrue(Institution.isIDValid(ID01)); 
+        Institution.addPerson(ID01, new Student());
+        
+        String ID11 = Institution.genID(1); 
+        assertTrue(Institution.isIDValid(ID11)); 
+        Institution.addPerson(ID11, new Student());
+        
+        String ID21 = Institution.genID(1); 
+        assertTrue(Institution.isIDValid(ID21)); 
+        Institution.addPerson(ID21, new Student()); 
+        
+        String ID31 = Institution.genID(1); 
+        assertTrue(Institution.isIDValid(ID31)); 
+        Institution.addPerson(ID31, new Student()); 
+        
+        String ID41 = Institution.genID(1); 
+        assertTrue(Institution.isIDValid(ID41)); 
+        Institution.addPerson(ID41, new Student()); 
+        
+        String ID51 = Institution.genID(1); 
+        assertTrue(Institution.isIDValid(ID51)); 
+        Institution.addPerson(ID51, new Student()); 
+        
+        String ID61 = Institution.genID(1); 
+        assertTrue(Institution.isIDValid(ID61)); 
+        Institution.addPerson(ID61, new Student()); 
+        
+        String ID71 = Institution.genID(1); 
+        assertTrue(Institution.isIDValid(ID71)); 
+        Institution.addPerson(ID71, new Student()); 
+        
+        String ID81 = Institution.genID(1); 
+        assertTrue(Institution.isIDValid(ID81)); 
+        Institution.addPerson(ID81, new Student()); 
+        
+        String ID91 = Institution.genID(1); 
+        assertTrue(Institution.isIDValid(ID91)); 
+        Institution.addPerson(ID91, new Student()); 
 
+        String ID02 = Institution.genID(2); 
+        assertTrue(Institution.isIDValid(ID02)); 
+        Institution.addPerson(ID02, new Professor());
+
+        String ID12 = Institution.genID(2); 
+        assertTrue(Institution.isIDValid(ID12)); 
+        Institution.addPerson(ID12, new Professor());
+
+        String ID22 = Institution.genID(2); 
+        assertTrue(Institution.isIDValid(ID22)); 
+        Institution.addPerson(ID22, new Professor());
+
+        String ID32 = Institution.genID(2); 
+        assertTrue(Institution.isIDValid(ID32)); 
+        Institution.addPerson(ID32, new Professor());
+
+        String ID42 = Institution.genID(2); 
+        assertTrue(Institution.isIDValid(ID42)); 
+        Institution.addPerson(ID42, new Professor());
+
+        String ID52 = Institution.genID(2); 
+        assertTrue(Institution.isIDValid(ID52)); 
+        Institution.addPerson(ID52, new Professor());
+
+        String ID62 = Institution.genID(2); 
+        assertTrue(Institution.isIDValid(ID62)); 
+        Institution.addPerson(ID62, new Professor());
+
+        String ID72 = Institution.genID(2); 
+        assertTrue(Institution.isIDValid(ID72)); 
+        Institution.addPerson(ID72, new Professor());
+
+        String ID82 = Institution.genID(2); 
+        assertTrue(Institution.isIDValid(ID82)); 
+        Institution.addPerson(ID82, new Professor());
+
+        String ID92 = Institution.genID(2); 
+        assertTrue(Institution.isIDValid(ID92)); 
+        Institution.addPerson(ID92, new Professor());
+        
     }
 }

@@ -75,6 +75,19 @@ public class Institution {
         }
     }
 
+    public static void addPerson(Person person){
+        String fID = person.getID();
+        char type = fID.charAt(0);
+        String ID = fID.substring(1);
+        if (type == '1'){
+            students.put(ID, (Student) person);
+        } if (type == '2'){
+            professors.put(ID, (Professor) person);
+        } else if (type == '3') {
+            admins.put(ID, (Admin) person);
+        }
+    }
+
     /**
      * @param cID
      * @param course
