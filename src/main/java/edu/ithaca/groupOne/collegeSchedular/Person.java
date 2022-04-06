@@ -47,4 +47,12 @@ public abstract class Person {
 
         return true;
     }
+
+    /**
+     * Gets the id of the person
+     * @return String : the id of the student
+     */
+    public String getId(){
+        return id;
+    }
 }

@@ -23,7 +23,7 @@ public class StudentTest {
 
     @Test
     void changeMajorTest(){
-        Student student = new Student("computer science", "password");
+        Student student = new Student("10111", "computer science", "password");
         assertTrue(student.getMajor().equals("computer science")); //equivalent class - first major set when made student
         student.changeMajor("physics");
         assertTrue(student.getMajor().equals("physics")); //equivalence class - change major to valid major
@@ -34,8 +34,9 @@ public class StudentTest {
 
     @Test
     void getterTests(){
-        Student student = new Student("physics", "password");
+        Student student = new Student("101101", "physics", "password");
         assertTrue(student.getPassword().equals("password"));
         assertTrue(student.getMajor().equals("physics"));
+        assertTrue(student.getId().equals("101101"));
     }
 }

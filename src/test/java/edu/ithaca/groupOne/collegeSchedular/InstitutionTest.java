@@ -8,7 +8,7 @@ public class InstitutionTest {
     
     @Test
     public void addGetPersonTest(){
-        Person s = new Student("computer science", "password");
+        Person s = new Student("1001", "computer science", "password");
         Person p = new Professor();
         Person a = new Admin();
 

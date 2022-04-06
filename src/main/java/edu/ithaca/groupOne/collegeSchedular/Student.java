@@ -8,10 +8,12 @@ public class Student extends Person {
     
     /**
      * Constructor method - assumes major is already valid, do we want to change this?
+     * @param id : String, the id of the student
      * @param major : String, the major of the student
      * @param password : String, the password for the student login
      */
-    public Student(String major, String password){
+    public Student(String id, String major, String password){
+        this.id = id;
         this.major = major;
         this.password = password;
     }
