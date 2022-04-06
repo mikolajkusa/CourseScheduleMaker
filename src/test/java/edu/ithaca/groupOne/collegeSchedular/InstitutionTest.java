@@ -2,6 +2,7 @@ package edu.ithaca.groupOne.collegeSchedular;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
@@ -56,6 +57,7 @@ public class InstitutionTest {
         assertFalse(Institution.isIDValid("a23456"));
         assertFalse(Institution.isIDValid("*23456"));
         assertFalse(Institution.isIDValid("\\23456"));
+        
         //ID already exists
         Institution.addPerson("123456", new Student());
         assertFalse(Institution.isIDValid("123456"));
@@ -63,6 +65,7 @@ public class InstitutionTest {
 
     @Test
     public void genIDTest(){
+<<<<<<< HEAD
         String ID01 = Institution.genID(1); 
         assertTrue(Institution.isIDValid(ID01)); 
         Institution.addPerson(ID01, new Student());
@@ -102,6 +105,36 @@ public class InstitutionTest {
         String ID91 = Institution.genID(1); 
         assertTrue(Institution.isIDValid(ID91)); 
         Institution.addPerson(ID91, new Student()); 
+=======
+        String id1 = Institution.genID(1);
+        String id2 = Institution.genID(2);
+        String id3 = Institution.genID(3);
+
+        //Invalid Person type
+        assertThrows(IllegalArgumentException.class, ()-> Institution.genID(0));
+        assertThrows(IllegalArgumentException.class, ()-> Institution.genID(4));
+        assertThrows(IllegalArgumentException.class, ()-> Institution.genID(-1));
+        assertThrows(IllegalArgumentException.class, ()-> Institution.genID(999));
+
+        //6 digit length
+        assertEquals(id1.length(), 6);
+        assertEquals(id2.length(), 6);
+        assertEquals(id3.length(), 6);
+
+        //First digit matches
+        assertEquals(id1.charAt(0), '1');
+        assertEquals(id2.charAt(0), '2');
+        assertEquals(id3.charAt(0), '3');
+
+        //each digit is numeric
+        for(int i = 0; i < 6; i++){
+            assertTrue(id1.charAt(i) <= '9' && id1.charAt(i) >= '0');
+            assertTrue(id2.charAt(i) <= '9' && id2.charAt(i) >= '0');
+            assertTrue(id3.charAt(i) <= '9' && id3.charAt(i) >= '0');
+        }
+        
+
+>>>>>>> cc62b28e28fd7656175ea13ef6b42d7d8ddbbc43
 
         String ID02 = Institution.genID(2); 
         assertTrue(Institution.isIDValid(ID02)); 
