@@ -11,7 +11,7 @@ public class InstitutionTest {
     
     @Test
     public void addGetPersonTest(){
-        Person s = new Student();
+        Person s = new Student(" ", " ", " ");
         Person p = new Professor();
         Person a = new Admin();
 
@@ -59,53 +59,51 @@ public class InstitutionTest {
         assertFalse(Institution.isIDValid("\\23456"));
         
         //ID already exists
-        Institution.addPerson("123456", new Student());
+        Institution.addPerson("123456", new Student("asdf", "asdf", "adsf"));
         assertFalse(Institution.isIDValid("123456"));
     }
 
     @Test
     public void genIDTest(){
-<<<<<<< HEAD
         String ID01 = Institution.genID(1); 
         assertTrue(Institution.isIDValid(ID01)); 
-        Institution.addPerson(ID01, new Student());
+        Institution.addPerson(ID01, new Student(" ", " ", " "));
         
         String ID11 = Institution.genID(1); 
         assertTrue(Institution.isIDValid(ID11)); 
-        Institution.addPerson(ID11, new Student());
+        Institution.addPerson(ID11, new Student(" ", " ", " "));
         
         String ID21 = Institution.genID(1); 
         assertTrue(Institution.isIDValid(ID21)); 
-        Institution.addPerson(ID21, new Student()); 
+        Institution.addPerson(ID21, new Student(" ", " ", " ")); 
         
         String ID31 = Institution.genID(1); 
         assertTrue(Institution.isIDValid(ID31)); 
-        Institution.addPerson(ID31, new Student()); 
+        Institution.addPerson(ID31, new Student(" ", " ", " ")); 
         
         String ID41 = Institution.genID(1); 
         assertTrue(Institution.isIDValid(ID41)); 
-        Institution.addPerson(ID41, new Student()); 
+        Institution.addPerson(ID41, new Student(" ", " ", " ")); 
         
         String ID51 = Institution.genID(1); 
         assertTrue(Institution.isIDValid(ID51)); 
-        Institution.addPerson(ID51, new Student()); 
+        Institution.addPerson(ID51, new Student(" ", " ", " ")); 
         
         String ID61 = Institution.genID(1); 
         assertTrue(Institution.isIDValid(ID61)); 
-        Institution.addPerson(ID61, new Student()); 
+        Institution.addPerson(ID61, new Student(" ", " ", " ")); 
         
         String ID71 = Institution.genID(1); 
         assertTrue(Institution.isIDValid(ID71)); 
-        Institution.addPerson(ID71, new Student()); 
+        Institution.addPerson(ID71, new Student(" ", " ", " ")); 
         
         String ID81 = Institution.genID(1); 
         assertTrue(Institution.isIDValid(ID81)); 
-        Institution.addPerson(ID81, new Student()); 
+        Institution.addPerson(ID81, new Student(" ", " ", " ")); 
         
         String ID91 = Institution.genID(1); 
         assertTrue(Institution.isIDValid(ID91)); 
-        Institution.addPerson(ID91, new Student()); 
-=======
+        Institution.addPerson(ID91, new Student(" ", " ", " ")); 
         String id1 = Institution.genID(1);
         String id2 = Institution.genID(2);
         String id3 = Institution.genID(3);
@@ -134,7 +132,6 @@ public class InstitutionTest {
         }
         
 
->>>>>>> cc62b28e28fd7656175ea13ef6b42d7d8ddbbc43
 
         String ID02 = Institution.genID(2); 
         assertTrue(Institution.isIDValid(ID02)); 
