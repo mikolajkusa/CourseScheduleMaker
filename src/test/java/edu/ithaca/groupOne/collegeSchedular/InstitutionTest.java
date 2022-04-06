@@ -23,7 +23,7 @@ public class InstitutionTest {
 
     @Test
     public void addGetCourseTest(){
-        Course c = new Course();
+        Course c = new Course(0, 0, 0, null, null, null);
 
         Institution.addCourse("COMP345", c);
 
