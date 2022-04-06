@@ -116,6 +116,26 @@ public class Institution {
     }
 
     public static boolean isIDValid(String ID){
-        return false;
+        //6 digits
+        if(ID.length() != 6){
+            return false;
+        }
+
+        //Invalid first digit - must be 1, 2, or 3
+        if(ID.charAt(0) > '3' || ID.charAt(0) < '0')
+            return false;
+
+
+        //each digit is numeric
+        for(int i = 1; i < 6; i++){
+            if(ID.charAt(i) > '9' || ID.charAt(i) < '0'){
+                return false;
+            }
+        }
+
+        //TODO-------------------------
+        //is a unique id
+
+        return true;
     }
 }

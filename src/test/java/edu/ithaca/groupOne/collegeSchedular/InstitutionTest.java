@@ -57,6 +57,7 @@ public class InstitutionTest {
         assertFalse(Institution.isIDValid("a23456"));
         assertFalse(Institution.isIDValid("*23456"));
         assertFalse(Institution.isIDValid("\\23456"));
+        
         //ID already exists
         Institution.addPerson("123456", new Student());
         assertFalse(Institution.isIDValid("123456"));
