@@ -3,6 +3,7 @@ package edu.ithaca.groupOne.collegeSchedular;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Random;
 
 public class Institution {
     private static HashMap<String, Student> students = new HashMap<>();
@@ -84,8 +85,34 @@ public class Institution {
         courses.put(cID, course);
     }
 
-    public static String genID(int type){
-        return null;
+    public static String genID(int type) throws IllegalArgumentException{
+        //assign first digit based on type
+        String newID = "";
+        if(type == 1){
+            newID = "1";
+        }
+        else if(type == 2){
+            newID = "2";
+        }
+        else if(type == 3){
+            newID = "3";
+        }
+
+        //throw error if type != 1, 2, or 3
+        if(newID.length() < 1){
+            throw new IllegalArgumentException("Invalid Person Type");
+        }
+
+        Random rand = new Random();
+
+        //loop 5 times
+        for(int i = 0; i<5; i++){
+            //Add random digit to id
+            String digit = "" + (char)('0' + rand.nextInt(0, 10));
+            newID = newID + digit;
+        }
+
+        return newID;
     }
 
     public static boolean isIDValid(String ID){

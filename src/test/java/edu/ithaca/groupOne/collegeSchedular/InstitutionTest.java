@@ -63,6 +63,28 @@ public class InstitutionTest {
 
     @Test
     public void genIDTest(){
+        String id1 = Institution.genID(1);
+        String id2 = Institution.genID(2);
+        String id3 = Institution.genID(3);
+
+        //6 digit length
+        assertEquals(id1.length(), 6);
+        assertEquals(id2.length(), 6);
+        assertEquals(id3.length(), 6);
+
+        //First digit matches
+        assertEquals(id1.charAt(0), '1');
+        assertEquals(id2.charAt(0), '2');
+        assertEquals(id3.charAt(0), '3');
+
+        //each digit is numeric
+        for(int i = 0; i < 6; i++){
+            assertTrue(id1.charAt(i) <= '9' && id1.charAt(i) >= '0');
+            assertTrue(id2.charAt(i) <= '9' && id2.charAt(i) >= '0');
+            assertTrue(id3.charAt(i) <= '9' && id3.charAt(i) >= '0');
+        }
+        
+
 
     }
 }
