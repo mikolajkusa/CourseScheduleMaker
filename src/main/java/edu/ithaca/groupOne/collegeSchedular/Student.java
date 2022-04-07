@@ -1,10 +1,13 @@
 package edu.ithaca.groupOne.collegeSchedular;
 
+import java.util.ArrayList;
+
 public class Student extends Person {
 
     private String major;
     private Schedule[] schedules; //think about making this something other than an array - map with key as name or something
     private int numCredits;
+    private ArrayList<Course> classes;
     
     /**
      * Constructor method - assumes major is already valid, do we want to change this?
@@ -16,6 +19,8 @@ public class Student extends Person {
         this.id = id;
         this.major = major;
         this.password = password;
+        numCredits = 18;
+        classes = new ArrayList<Course>();
     }
 
     /**
@@ -70,7 +75,7 @@ public class Student extends Person {
      * @return FIGURE OUT DATA TYPE : All the schedules the student has made
      */
     public Schedule[] getSchedules(){ //maybe not make it an array, think about data types
-        return null;
+        return schedules;
     }
 
     /**
@@ -86,6 +91,19 @@ public class Student extends Person {
      * @return int : the number of credits the student is currently enrolled in
      */
     public int getNumCredits(){
-        return -1;
+        return numCredits;
     }
+
+    public void setNumCredits(int numCredits){
+        this.numCredits = numCredits;
+    }
+
+    public void addCourse(Course course){
+        classes.add(course);
+    }
+
+    public ArrayList<Course> getClasses(){
+        return classes;
+    }
+
 }
