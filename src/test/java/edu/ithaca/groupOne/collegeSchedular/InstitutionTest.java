@@ -10,7 +10,7 @@ public class InstitutionTest {
     public void addGetPersonTest(){
         Person s = new Student("1001", "computer science", "password");
         Person p = new Professor();
-        Person a = new Admin();
+        Person a = new Admin("323456","dinosaurz");
 
         Institution.addPerson("123456", s);
         Institution.addPerson("223456", p);
@@ -23,7 +23,7 @@ public class InstitutionTest {
 
     @Test
     public void addGetCourseTest(){
-        Course c = new Course();
+        Course c = new Course(34500, 30, 4, "CompSci", "Spring", null);
 
         Institution.addCourse("COMP345", c);
 
