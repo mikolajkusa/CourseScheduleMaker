@@ -6,7 +6,7 @@ public class Student extends Person {
 
     private String major;
     private Schedule[] schedules; //think about making this something other than an array - map with key as name or something
-    private int numCredits;
+    private double numCredits;
     private ArrayList<Course> classes;
     
     /**
@@ -90,11 +90,11 @@ public class Student extends Person {
      * Gets the number of credits the student is currently unrolled in
      * @return int : the number of credits the student is currently enrolled in
      */
-    public int getNumCredits(){
+    public double getNumCredits(){
         return numCredits;
     }
 
-    public void setNumCredits(int numCredits){
+    public void setNumCredits(double numCredits){
         this.numCredits = numCredits;
     }
 
