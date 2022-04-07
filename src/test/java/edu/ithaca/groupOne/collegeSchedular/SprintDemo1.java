@@ -24,12 +24,19 @@ public class SprintDemo1 {
 
         
         //Institution class demo
+        Institution institution = new Institution();
 
         //Show class diagram
 
         //Show sequence diagram
 
         //Change major
+        System.out.println("Current student major: " + student.getMajor());
+        
+        System.out.println("Changing major to Biology");
+        student.changeMajor("Biology");
+
+        System.out.println("Student major now: " + student.getMajor());
 
         //Course library demo
 
