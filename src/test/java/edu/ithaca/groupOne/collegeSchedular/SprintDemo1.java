@@ -1,18 +1,38 @@
 package edu.ithaca.groupOne.collegeSchedular;
 
+import javax.sound.midi.Soundbank;
+
 public class SprintDemo1 {
     
-    //Login demo
+    public static void main(String[] args) {
+        //Login demo
+        Student student = new Student("123456", "Computer Science", "password");
+        System.out.println("Student created. ID number: 123456, Major: Computer Science, Password: password");
+        System.out.println("Login in attempt with ID: 123456 and Password: wordpass");
 
-    //Institution class demo
+        if(student.login("123456", "wordpass"))
+            System.out.println("Login successful");
+        else
+            System.out.println("Login failed");
 
-    //Show class diagram
+        System.out.println("Login in attempt with ID: 123456 and Password: password");
 
-    //Show sequence diagram
+        if(student.login("123456", "password"))
+            System.out.println("Login successful");
+        else
+            System.out.println("Login failed");
 
-    //Change major
+        
+        //Institution class demo
 
-    //Course library demo
+        //Show class diagram
 
-    //Student and Abstract Person demo
+        //Show sequence diagram
+
+        //Change major
+
+        //Course library demo
+
+        //Student and Abstract Person demo
+    }
 }
