@@ -1,6 +1,7 @@
 package edu.ithaca.groupOne.collegeSchedular;
 
 import java.util.Map;
+import java.util.TreeMap;
 
 public class Professor extends Person{
     private Map<Integer, Course> courses; //think about what data type this should be
@@ -11,15 +12,22 @@ public class Professor extends Person{
      * @param password - String password, the password for the professor login
      */
     public Professor(String id, String password){
-        
+        this.id = id;
+        this.password = password;
+        courses = new TreeMap<>();
     }
 
     /**
      * Delete the course from the courses map
      * @param courseId - the id of the course to delete
      */
-    public void deleteCourse(Integer courseId){
-
+    public void deleteCourse(Integer courseId) throws IllegalArgumentException{
+        if (courses.containsKey(courseId)){
+            courses.remove(courseId);
+        }
+        else{
+            throw new IllegalArgumentException();
+        }
     }
 
     /**
@@ -30,9 +38,13 @@ public class Professor extends Person{
      * @param major - String, the major the course is for
      * @param semester - String, the semester the course is offered
      * @param timeSlot - String, the time that the course is offered at
+     * @throws CourseIdInUseException
      */
-    public void createCourse(int courseID, int maxStudentCount, double credits, String major, String semester, String timeSlot){
-
+    public void createCourse(int courseID, int maxStudentCount, double credits, String major, String semester, String timeSlot) throws CourseIdInUseException{
+        Course newCourse = new Course(courseID, maxStudentCount, credits, major, semester, timeSlot);
+        if (courses.putIfAbsent(courseID, newCourse) != null){
+            throw new CourseIdInUseException("This courseID is already in use.");
+        }
     }
 
     /**
@@ -40,7 +52,7 @@ public class Professor extends Person{
      * @return array, all the courses the progessor teaches
      */
     public Course[] getCoursesList(){
-        return null;
+        return courses.values().toArray(new Course[0]);
     }
 
     /**
@@ -48,7 +60,7 @@ public class Professor extends Person{
      * @return a map based off of course id's
      */
     public Map<Integer, Course> getCourses(){
-        return null;
+        return courses;
     }
 
 
