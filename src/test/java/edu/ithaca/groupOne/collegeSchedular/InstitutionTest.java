@@ -9,7 +9,7 @@ public class InstitutionTest {
     @Test
     public void addGetPersonTest(){
         Person s = new Student("1001", "computer science", "password");
-        Person p = new Professor();
+        Person p = new Professor("2002", "password");
         Person a = new Admin();
 
         Institution.addPerson("123456", s);
