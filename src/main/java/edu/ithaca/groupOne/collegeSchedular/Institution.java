@@ -3,7 +3,9 @@ package edu.ithaca.groupOne.collegeSchedular;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
 
 public class Institution {
     private static HashMap<String, Student> students = new HashMap<>();
@@ -40,6 +42,7 @@ public class Institution {
      * @param fID
      * @return Person assosiated with ID
      */
+    //should throw exception if person not found
     public static Person getPerson(String fID){
         char type = fID.charAt(0);
         String ID = fID.substring(1);
@@ -56,6 +59,7 @@ public class Institution {
      * @param cID
      * @return Course assosiated with cID
      */
+    //should throw execption if course not found
     public static Course getCourse(String cID){
         return courses.get(cID);
     }
@@ -149,6 +153,23 @@ public class Institution {
 
         //TODO-------------------------
         //is a unique id
+        //seems to not work yet lol
+        Set<String> allIDs = new HashSet<String>();
+            
+        for (String k : students.keySet()) {
+            allIDs.add(k);
+        }
+        for (String k : professors.keySet()) {
+            allIDs.add(k);
+        }
+        for (String k : admins.keySet()) {
+            allIDs.add(k);
+        }
+
+        if (allIDs.contains(ID.substring(1))) {
+            return false;
+        }
+
 
         return true;
     }
