@@ -1,5 +1,6 @@
 package edu.ithaca.groupOne.collegeSchedular;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -30,8 +31,11 @@ public class CourseLibraryTest {
         assertThrows(IllegalArgumentException.class, () -> lib.addCourse(new Course(50, 10, 3, "Computer Science", "Spring", "Async")));
         assertThrows(IllegalArgumentException.class, () -> lib.addCourse(new Course(99, 10, 3, "Computer Science", "Spring", "Async")));
 
-        //adding a null course
-        assertThrows(IllegalArgumentException.class, () -> lib.addCourse(null));
+        //adding an invalid course
+        assertThrows(IllegalArgumentException.class, () -> lib.addCourse(null)); //nullptr
+        assertThrows(IllegalArgumentException.class, () -> lib.addCourse(new Course(-1, 10, 4, "Biology", "Spring", "Async"))); //invalid id number
+        assertThrows(IllegalArgumentException.class, () -> lib.addCourse(new Course(123, 0, 4, "Biology", "Spring", "Async"))); //max students < 1
+
 
     }
 
@@ -47,12 +51,11 @@ public class CourseLibraryTest {
         lib.removeCourse(2);
         
         //removes a course that exists
-        assertTrue(lib.getCourses().size() == 9);
-
+        assertEquals(lib.getCourses().size(), 9);
         //remove course that does not exist
-        assertThrows(CourseUnavailableException.class, () -> lib.removeCourse(-1));
-        assertThrows(CourseUnavailableException.class, () -> lib.removeCourse(2));
-        assertThrows(CourseUnavailableException.class, () -> lib.removeCourse(11));
+        assertThrows(IllegalArgumentException.class, () -> lib.removeCourse(-1));
+        assertThrows(IllegalArgumentException.class, () -> lib.removeCourse(2));
+        assertThrows(IllegalArgumentException.class, () -> lib.removeCourse(11));
 
         
 
