@@ -13,11 +13,11 @@ public class CourseLibrary {
         return null;
     }
 
-    public void addCourse(){
+    public void addCourse(Course course){
 
     }
 
-    public void removeCourse(){
-        
+    public void removeCourse(int courseID){
+
     }
 }
