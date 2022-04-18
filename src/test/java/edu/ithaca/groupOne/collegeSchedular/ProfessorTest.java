@@ -37,6 +37,7 @@ public class ProfessorTest {
         assertEquals(50, prof.getCourses().get(1).getMaxStudentCount());
         prof.changeCourseStudentCount(1, 0); //boundary case - change to allow no students in the course
         assertEquals(0, prof.getCourses().get(1).getMaxStudentCount());
+        assertThrows(IllegalArgumentException.class, ()->prof.changeCourseStudentCount(2, 20)); //equivalence case - change student count of course that does not exist
     }
     
 }
