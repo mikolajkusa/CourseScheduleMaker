@@ -70,7 +70,7 @@ public class Professor extends Person{
      * @param courseId - int, the id of the course
      * @param newStudentCount - int, the new student count of the course
      */
-    public void changeCourseStudentCount(int courseId, int newStudentCount){
+    public void changeCourseStudentCount(int courseId, int newStudentCount) throws IllegalArgumentException{
 
     }
 

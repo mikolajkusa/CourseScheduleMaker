@@ -25,5 +25,18 @@ public class ProfessorTest {
         assertEquals(1, prof.getCoursesList().length); //Equivalence case - removed a course
         assertEquals(1, prof.getCourses().size());
     }
+
+    @Test
+    void changeStudentCountTest() throws CourseIdInUseException, IllegalArgumentException{
+        Professor prof = new Professor("2002", "password");
+        prof.createCourse(1, 10, 4, "computer science", "sp2022", "MWF10-1050");
+        assertEquals(10, prof.getCourses().get(1).getMaxStudentCount()); //equivalence case - no change in student count yet
+        prof.changeCourseStudentCount(1, 50);
+        assertEquals(50, prof.getCourses().get(1).getMaxStudentCount()); //equivalence case - changed to valid number
+        assertThrows(IllegalArgumentException.class, ()->prof.changeCourseStudentCount(1, -10)); //equivalence case - change to invalid student amount
+        assertEquals(50, prof.getCourses().get(1).getMaxStudentCount());
+        prof.changeCourseStudentCount(1, 0); //boundary case - change to allow no students in the course
+        assertEquals(0, prof.getCourses().get(1).getMaxStudentCount());
+    }
     
 }
