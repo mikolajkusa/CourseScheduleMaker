@@ -100,4 +100,14 @@ public class Professor extends Person{
         course.setCredits(newCredits);
     }
 
+    /**
+     * Changes the semester the course is offered
+     * @param courseID - int, the id of the course
+     * @param newSemester - String, the new semester to offer the course
+     * @throws IllegalArgumentException
+     */
+    public void changeCourseSemester(int courseID, String newSemester) throws IllegalArgumentException{
+
+    }
+
 }
