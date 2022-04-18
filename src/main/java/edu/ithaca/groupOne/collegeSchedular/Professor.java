@@ -28,6 +28,7 @@ public class Professor extends Person{
         else{
             throw new IllegalArgumentException();
         }
+        //NEED TO REMOVE COURSE FROM THE COURSE LIBRARY
     }
 
     /**
@@ -45,6 +46,7 @@ public class Professor extends Person{
         if (courses.putIfAbsent(courseID, newCourse) != null){
             throw new CourseIdInUseException("This courseID is already in use.");
         }
+        //NEED TO ADD COURSE TO THE COURSE LIBRARY
     }
 
     /**
@@ -63,5 +65,13 @@ public class Professor extends Person{
         return courses;
     }
 
+    /**
+     * Changes the max student count for a given course
+     * @param courseId - int, the id of the course
+     * @param newStudentCount - int, the new student count of the course
+     */
+    public void changeCourseStudentCount(int courseId, int newStudentCount){
+
+    }
 
 }
