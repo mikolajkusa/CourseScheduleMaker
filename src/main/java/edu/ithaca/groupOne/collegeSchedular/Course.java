@@ -110,7 +110,7 @@ public class Course {
         this.major = major;
     }
 
-    public void setCredits(int credits){
+    public void setCredits(double credits){
         this.credits = credits;
     }
 }

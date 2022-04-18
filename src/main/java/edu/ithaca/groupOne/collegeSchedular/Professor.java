@@ -90,7 +90,14 @@ public class Professor extends Person{
      * @throws IllegalArgumentException
      */
     public void changeCreditAmount(int courseId, double newCredits) throws IllegalArgumentException{
-
+        Course course = courses.get(courseId);
+        if (course == null){
+            throw new IllegalArgumentException("Invalid course ID");
+        }
+        if (newCredits <= 0.0){
+            throw new IllegalArgumentException("Invalid number of credits");
+        }
+        course.setCredits(newCredits);
     }
 
 }
