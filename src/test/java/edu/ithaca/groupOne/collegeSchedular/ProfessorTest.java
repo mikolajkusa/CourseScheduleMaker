@@ -39,5 +39,19 @@ public class ProfessorTest {
         assertEquals(0, prof.getCourses().get(1).getMaxStudentCount());
         assertThrows(IllegalArgumentException.class, ()->prof.changeCourseStudentCount(2, 20)); //equivalence case - change student count of course that does not exist
     }
+
+    @Test
+    void changeCreditAmountTest() throws CourseIdInUseException, IllegalArgumentException{
+        Professor prof = new Professor("2002", "password");
+        prof.createCourse(1, 10, 4, "computer science", "sp2022", "MWF10-1050");
+        assertEquals(4, prof.getCourses().get(1).getCredits()); //equivalence case - no change in number of credits yet
+        prof.changeCreditAmount(1, 3);
+        assertEquals(3, prof.getCourses().get(1).getCredits()); //equivalence case - change number of credits to a valid amount
+        assertThrows(IllegalArgumentException.class, ()->prof.changeCreditAmount(1, -2)); //equivalence case - change to invalid number of credits
+        assertEquals(3, prof.getCourses().get(1).getCredits());
+        assertThrows(IllegalArgumentException.class, ()->prof.changeCreditAmount(1, 0)); //boundary case - cannot have a course with zero credits
+        assertEquals(3, prof.getCourses().get(1).getCredits());
+        assertThrows(IllegalArgumentException.class, ()->prof.changeCreditAmount(2, 4)); //equivalence case - invalid course id
+    }
     
 }
