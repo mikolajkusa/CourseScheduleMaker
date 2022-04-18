@@ -83,4 +83,14 @@ public class Professor extends Person{
         course.setMaxStudentCount(newStudentCount);
     }
 
+    /**
+     * Changes the number of credits a given course is
+     * @param courseId - int, the id of the course
+     * @param newCredits - double, the amount of credits to change the course to
+     * @throws IllegalArgumentException
+     */
+    public void changeCreditAmount(int courseId, double newCredits) throws IllegalArgumentException{
+
+    }
+
 }
