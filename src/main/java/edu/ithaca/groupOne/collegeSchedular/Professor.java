@@ -20,6 +20,7 @@ public class Professor extends Person{
     /**
      * Delete the course from the courses map
      * @param courseId - the id of the course to delete
+     * @throws IllegalArgumentException
      */
     public void deleteCourse(Integer courseId) throws IllegalArgumentException{
         if (courses.containsKey(courseId)){
@@ -69,9 +70,17 @@ public class Professor extends Person{
      * Changes the max student count for a given course
      * @param courseId - int, the id of the course
      * @param newStudentCount - int, the new student count of the course
+     * @throws IllegalArgumentException
      */
     public void changeCourseStudentCount(int courseId, int newStudentCount) throws IllegalArgumentException{
-        
+        Course course = courses.get(courseId);
+        if (course == null){
+            throw new IllegalArgumentException("Invalid course ID");
+        }
+        if (newStudentCount < 0){
+            throw new IllegalArgumentException("Invalid student count");
+        }
+        course.setMaxStudentCount(newStudentCount);
     }
 
 }
