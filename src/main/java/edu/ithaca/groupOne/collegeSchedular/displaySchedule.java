@@ -13,7 +13,7 @@ public class displaySchedule extends JFrame {
     private displaySchedule() {
         super("Schedule");
             // width height 
-        setSize(550, 550);
+        setSize(580, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }
@@ -25,61 +25,61 @@ public class displaySchedule extends JFrame {
 
     private void setTimes() {
         JLabel nine = new JLabel("9:00 AM");
-        nine.setBounds(10, 10, 100, 50);
+        nine.setBounds(10, 30, 70, 50);
         this.add(nine);
         
         JLabel ten = new JLabel("10:00 AM");
-        ten.setBounds(10, 60, 100, 50);
+        ten.setBounds(10, 80, 70, 50);
         this.add(ten);
         
         JLabel eleven = new JLabel("11:00 AM");
-        eleven.setBounds(10, 110, 100, 50);
+        eleven.setBounds(10, 130, 70, 50);
         this.add(eleven);
         
         JLabel noon = new JLabel("12:00 PM");
-        noon.setBounds(10, 160, 100, 50);
+        noon.setBounds(10, 180, 70, 50);
         this.add(noon);
         
         JLabel one = new JLabel("1:00 PM");
-        one.setBounds(10, 210, 100, 50);
+        one.setBounds(10, 230, 70, 50);
         this.add(one);
         
         JLabel two = new JLabel("2:00 PM");
-        two.setBounds(10, 260, 100, 50);
+        two.setBounds(10, 280, 70, 50);
         this.add(two);
         
         JLabel three = new JLabel("3:00 PM");
-        three.setBounds(10, 310, 100, 50);
+        three.setBounds(10, 330, 70, 50);
         this.add(three);
         
         JLabel four = new JLabel("4:00 PM");
-        four.setBounds(10, 360, 100, 50);
+        four.setBounds(10, 380, 70, 50);
         this.add(four);
         
         JLabel five = new JLabel("5:00 PM");
-        five.setBounds(10, 410, 100, 50);
+        five.setBounds(10, 430, 70, 50);
         this.add(five);
     }
 
     private void setDays() {
         JLabel mon = new JLabel("Mon");
-        mon.setBounds(100, 0, 50, 50);
+        mon.setBounds(115, 0, 50, 50);
         this.add(mon);
 
         JLabel tue = new JLabel("Tue");
-        tue.setBounds(200, 0, 50, 50);
+        tue.setBounds(215, 0, 50, 50);
         this.add(tue);
 
         JLabel wed = new JLabel("Wed");
-        wed.setBounds(300, 0, 50, 50);
+        wed.setBounds(315, 0, 50, 50);
         this.add(wed);
         
         JLabel thur = new JLabel("Thur");
-        thur.setBounds(400, 0, 50, 50);
+        thur.setBounds(415, 0, 50, 50);
         this.add(thur);
 
         JLabel fri = new JLabel("Fri");
-        fri.setBounds(500, 0, 50, 50);
+        fri.setBounds(515, 0, 50, 50);
         this.add(fri);
 
         JLabel nothing = new JLabel("");
@@ -95,15 +95,36 @@ public class displaySchedule extends JFrame {
     //should add lines to make time slots clear
     private void setGrid(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
-         
-        float[] dashingPattern1 = {2f, 2f};
-        Stroke stroke1 = new BasicStroke(2f, BasicStroke.CAP_BUTT,
-        BasicStroke.JOIN_MITER, 1.0f, dashingPattern1, 2.0f);
- 
-        g2d.setStroke();
         
-        g2d.drawLine(120, 50, 360, 50);
-        g2d.drawLine(100, 0, 100, 550);
+        //horizontal 
+        g2d.drawLine(0, 65, 580, 65);
+        g2d.drawLine(0, 110, 580, 110);
+        g2d.drawLine(0, 165, 580, 165);
+        g2d.drawLine(0, 210, 580, 210);
+        g2d.drawLine(0, 265, 580, 265);
+        g2d.drawLine(0, 310, 580, 310);
+        g2d.drawLine(0, 365, 580, 365);
+        g2d.drawLine(0, 410, 580, 410);
+        g2d.drawLine(0, 465, 580, 465);
+
+
+        //vertical
+        g2d.drawLine(80, 0, 80, 550);
+        g2d.drawLine(180, 0, 180, 550);
+        g2d.drawLine(280, 0, 280, 550);
+        g2d.drawLine(380, 0, 380, 550);
+        g2d.drawLine(480, 0, 480, 550);
+        
+        /*
+
+        g2d.drawLine(150, 0, 150, 550);
+
+        g2d.drawLine(250, 0, 250, 550);
+
+        g2d.drawLine(350, 0, 350, 550);
+
+        g2d.drawLine(450, 0, 450, 550);
+        */
     }
 
 
