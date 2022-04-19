@@ -42,7 +42,10 @@ public class Professor extends Person{
      * @param timeSlot - String, the time that the course is offered at
      * @throws CourseIdInUseException
      */
-    public void createCourse(int courseID, int maxStudentCount, double credits, String major, String semester, String timeSlot) throws CourseIdInUseException{
+    public void createCourse(int courseID, int maxStudentCount, double credits, String major, String semester, String timeSlot) throws CourseIdInUseException, IllegalArgumentException{
+        if (!isSemesterValid(semester)){
+            throw new IllegalArgumentException();
+        }
         Course newCourse = new Course(courseID, maxStudentCount, credits, major, semester, timeSlot);
         if (courses.putIfAbsent(courseID, newCourse) != null){
             throw new CourseIdInUseException("This courseID is already in use.");
@@ -107,7 +110,41 @@ public class Professor extends Person{
      * @throws IllegalArgumentException
      */
     public void changeCourseSemester(int courseID, String newSemester) throws IllegalArgumentException{
+        Course course = courses.get(courseID);
+        newSemester = newSemester.toLowerCase();
+        if (course == null){
+            throw new IllegalArgumentException("Invalid course ID");
+        }
+        if (!isSemesterValid(newSemester)){
+            throw new IllegalArgumentException("Invalid new semester");
+        }
+        course.setSemester(newSemester);
+    }
 
+    /**
+     * Determines if a new semester is a valid semester
+     * @param semester - String, the new semester to check
+     * @return boolean, true if the semester is valid, false if otherwise
+     */
+    private boolean isSemesterValid(String semester){
+        if (semester.length() < 2){
+            return false;
+        }
+        String season = semester.substring(0, 2);
+        String year = semester.substring(2);
+        if (!season.equals("fa") && !season.equals("sp") && !season.equals("su") && !season.equals("wi")){
+            return false; //checks the season
+        }
+        try{ //check the year
+            int intYear = Integer.parseInt(year);
+            if (intYear < 0){
+                return false;
+            }
+            return true;
+        }
+        catch(Exception e){
+            return false;
+        }
     }
 
 }
