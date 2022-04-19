@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class Professor extends Person{
-    private Map<Integer, Course> courses; //think about what data type this should be
+    private Map<Integer, Course> courses; //will use a tree map for the implementation
 
     /**
      * Constructor for the professor
@@ -41,6 +41,7 @@ public class Professor extends Person{
      * @param semester - String, the semester the course is offered
      * @param timeSlot - String, the time that the course is offered at
      * @throws CourseIdInUseException
+     * @throws IllegalArgumentException
      */
     public void createCourse(int courseID, int maxStudentCount, double credits, String major, String semester, String timeSlot) throws CourseIdInUseException, IllegalArgumentException{
         if (!isSemesterValid(semester)){
@@ -119,6 +120,16 @@ public class Professor extends Person{
             throw new IllegalArgumentException("Invalid new semester");
         }
         course.setSemester(newSemester);
+    }
+
+    /**
+     * Changes the time at which the course is offered
+     * @param courseID - int, the id of the course
+     * @param newTime - String, the new time the course will be at
+     * @throws IllegalArgumentException
+     */
+    public void chageCourseTime(int courseID, String newTime) throws IllegalArgumentException{
+
     }
 
     /**
