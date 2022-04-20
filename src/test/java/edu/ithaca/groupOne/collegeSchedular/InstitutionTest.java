@@ -13,7 +13,7 @@ public class InstitutionTest {
     public void addGetPersonTest(){
         Person s = new Student(" ", " ", " ");
         Person p = new Professor();
-        Person a = new Admin();
+        Person a = new Admin("323456","dinosaurz");
 
         Institution.addPerson("123456", s);
         Institution.addPerson("223456", p);
