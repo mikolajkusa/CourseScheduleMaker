@@ -174,38 +174,38 @@ public class Professor extends Person{
      * @return boolean, if the time is valid returns true, false otherwise
      */
     private boolean isTimeValid(String time){
-        if (time.length() < 7){
+        if (time.length() < 7){ //minimum length of the time string
             return false;
         }
-        int timeIdx = time.indexOf(" ") + 1;
-        if (timeIdx == 0){
+        int timeIdx = time.indexOf(" ") + 1; //get starting index of the starting time
+        if (timeIdx == 0){ //if the staring index is not found
             return false;
         }
-        String days = time.substring(0, timeIdx - 1);
+        String days = time.substring(0, timeIdx - 1); //get the days
         days = days.toLowerCase();
         String validChars = "mwfthusa";
         for (int i = 0; i < timeIdx - 1; i++){
-            if(!validChars.contains(days.substring(i,i+1))){
+            if(!validChars.contains(days.substring(i,i+1))){ //make sure the days are valid
                 return false;
             }
         }
-        int timeSplit = time.indexOf("-");
-        if (timeSplit == -1){
+        int timeSplit = time.indexOf("-"); //split times up into starting and ending times
+        if (timeSplit == -1){ //if no where to split the time up
             return false;
         }
-        String startTime = time.substring(timeIdx, timeSplit);
+        String startTime = time.substring(timeIdx, timeSplit); //get starting and ending times
         String endTime = time.substring(timeSplit + 1);
         try{
-            int timeStart = Integer.parseInt(startTime);
+            int timeStart = Integer.parseInt(startTime); //make sure they are both integers
             int timeEnd = Integer.parseInt(endTime);
-            if (timeStart > 12 || timeStart < 1){
+            if (timeStart > 12 || timeStart < 1){ //make sure they are in between 1 and 12
                 return false;
             }
             if (timeEnd > 12 || timeEnd < 1){
                 return false;
             }
             if (timeStart > timeEnd){
-                int t = timeStart + Institution.getMaxCourseLength();
+                int t = timeStart + Institution.getMaxCourseLength(); //check for wrap around from 12-1 or similar
                 if (t > 12){
                     t = t - 12;
                     if (timeEnd > t){
@@ -213,7 +213,7 @@ public class Professor extends Person{
                     }
                 }
             }
-            if (timeEnd - timeStart > Institution.getMaxCourseLength()){
+            if (timeEnd - timeStart > Institution.getMaxCourseLength()){ //make sure not too long
                 return false;
             }
             return true;
