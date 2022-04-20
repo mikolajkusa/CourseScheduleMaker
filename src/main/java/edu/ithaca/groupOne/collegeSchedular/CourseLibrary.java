@@ -8,26 +8,27 @@ public class CourseLibrary {
     private HashMap<Integer, Course> courses;
     /**
      * Constructor for thew CourseLibrary
-     * Creates an empty ArrayList for the courses
+     * Creates an empty HashMap for the courses
      */
     public CourseLibrary(){
         courses = new HashMap<Integer, Course>();
     }
 
     /**
-     * Returns the ArrayList for courses
-     * @return the ArrayList of courses
+     * Returns an array of all courses courses created from the hashmap
+     * @return the array of courses
      */
-    public HashMap<Integer, Course> getCourses(){
-        return courses;
+    public Course[] getCourses(){
+        Course allCourses[] =  (Course[]) courses.values().toArray();
+        return allCourses;
     }
 
 
     /**
-     * Adds a course to the courses ArrayList, if it is a valid course
+     * Adds a course to the courses HashMap, if it is a valid course
      * @param course - the course to be added if it is valid
      * @throws IllegalArgumentException if the course being added is invalid or a duplicate
-     * @post - the course is added to the list, or the list remians the same if the course is not valid
+     * @post - the course is added to the map, or the map remians the same if the course is not valid
      */
     public void addCourse(Course course){
 
@@ -46,10 +47,10 @@ public class CourseLibrary {
     }
 
     /**
-     * Removes a course from the courses ArrayList
+     * Removes a course from the courses HashMap
      * @param courseID - the id of the course being removed
-     * @throws IllegalArgumentException - if the course id does not exist in the courses ArrayList
-     * @post - the course with the given id is removed, or the ArrayList remains the same if not found
+     * @throws IllegalArgumentException - if the course id does not exist in the courses map
+     * @post - the course with the given id is removed, or the map remains the same if not found
      */
     public void removeCourse(int courseID){
         boolean found = courses.containsKey(courseID);
