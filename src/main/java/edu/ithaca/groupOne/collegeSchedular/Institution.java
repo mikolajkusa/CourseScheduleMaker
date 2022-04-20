@@ -82,7 +82,7 @@ public class Institution {
     }
 
     public static void addPerson(Person person){
-        String fID = person.getID();
+        String fID = person.getId();
         char type = fID.charAt(0);
         String ID = fID.substring(1);
         if (type == '1'){
