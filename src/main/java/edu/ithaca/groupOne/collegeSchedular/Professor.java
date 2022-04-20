@@ -45,7 +45,10 @@ public class Professor extends Person{
      */
     public void createCourse(int courseID, int maxStudentCount, double credits, String major, String semester, String timeSlot) throws CourseIdInUseException, IllegalArgumentException{
         if (!isSemesterValid(semester)){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Invalid semester");
+        }
+        if (!isTimeValid(timeSlot)){
+            throw new IllegalArgumentException("Invalid time slot");
         }
         Course newCourse = new Course(courseID, maxStudentCount, credits, major, semester, timeSlot);
         if (courses.putIfAbsent(courseID, newCourse) != null){
@@ -129,7 +132,14 @@ public class Professor extends Person{
      * @throws IllegalArgumentException
      */
     public void changeCourseTime(int courseID, String newTime) throws IllegalArgumentException{
-
+        Course course = courses.get(courseID);
+        if (course == null){
+            throw new IllegalArgumentException("Invalid course ID");
+        }
+        if (!isTimeValid(newTime)){
+            throw new IllegalArgumentException("Invalid new time");
+        }
+        course.setTimeSlot(newTime);
     }
 
     /**
@@ -149,6 +159,61 @@ public class Professor extends Person{
         try{ //check the year
             int intYear = Integer.parseInt(year);
             if (intYear < 0){
+                return false;
+            }
+            return true;
+        }
+        catch(Exception e){
+            return false;
+        }
+    }
+
+    /**
+     * Determines if a time is a valid course time
+     * @param time - String, the time to check
+     * @return boolean, if the time is valid returns true, false otherwise
+     */
+    private boolean isTimeValid(String time){
+        if (time.length() < 7){
+            return false;
+        }
+        int timeIdx = time.indexOf(" ") + 1;
+        if (timeIdx == 0){
+            return false;
+        }
+        String days = time.substring(0, timeIdx - 1);
+        days = days.toLowerCase();
+        String validChars = "mwfthusa";
+        for (int i = 0; i < timeIdx - 1; i++){
+            if(!validChars.contains(days.substring(i,i+1))){
+                return false;
+            }
+        }
+        int timeSplit = time.indexOf("-");
+        if (timeSplit == -1){
+            return false;
+        }
+        String startTime = time.substring(timeIdx, timeSplit);
+        String endTime = time.substring(timeSplit + 1);
+        try{
+            int timeStart = Integer.parseInt(startTime);
+            int timeEnd = Integer.parseInt(endTime);
+            if (timeStart > 12 || timeStart < 1){
+                return false;
+            }
+            if (timeEnd > 12 || timeEnd < 1){
+                return false;
+            }
+            if (timeStart > timeEnd){
+                int t = timeStart + Institution.getMaxCourseLength();
+                if (t > 12){
+                    t = t - 12;
+                    if (timeEnd > t){
+                        return false;
+                    }
+                }
+            }
+            if (timeEnd - timeStart > Institution.getMaxCourseLength()){
                 return false;
             }
             return true;

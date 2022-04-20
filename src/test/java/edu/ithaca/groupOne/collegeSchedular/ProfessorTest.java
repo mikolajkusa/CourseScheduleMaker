@@ -97,6 +97,12 @@ public class ProfessorTest {
         assertThrows(IllegalArgumentException.class, ()-> prof.changeCourseTime(1, "MWF 10a-11")); //invalid times
         assertThrows(IllegalArgumentException.class, ()-> prof.changeCourseTime(1, "MWF 10.5-11"));
         assertThrows(IllegalArgumentException.class, ()-> prof.changeCourseTime(1, "MWF 10-11:30"));
+        assertThrows(IllegalArgumentException.class, ()-> prof.changeCourseTime(1, "TTH 10-8")); //cannot have a course go backwards in time
+        assertThrows(IllegalArgumentException.class, ()-> prof.changeCourseTime(1, "MWF 12-14")); //cannot have a course time above 12
+        assertThrows(IllegalArgumentException.class, ()-> prof.changeCourseTime(1, "MWF 0-1")); //cannot have a zero course time
+        assertThrows(IllegalArgumentException.class, ()-> prof.changeCourseTime(1, "MWF -1-1")); //cannot have a negative course time
+        assertThrows(IllegalArgumentException.class, ()-> prof.changeCourseTime(1, "fewf 20-14")); //everything invalid
+        assertThrows(IllegalArgumentException.class, ()-> prof.changeCourseTime(1, "MWF 2-7")); //course length too long
     }
     
 }

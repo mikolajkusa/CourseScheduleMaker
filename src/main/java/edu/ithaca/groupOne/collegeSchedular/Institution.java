@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 public class Institution {
+    private static int maxCourseLength = 4;
     private static HashMap<String, Student> students = new HashMap<>();
     private static HashMap<String, Professor> professors = new HashMap<>();
     private static HashMap<String, Admin> admins = new HashMap<>();
@@ -91,5 +92,9 @@ public class Institution {
 
     public static boolean isIDValid(String ID){
         return false;
+    }
+
+    public static int getMaxCourseLength(){
+        return maxCourseLength;
     }
 }
