@@ -1,23 +1,24 @@
 package edu.ithaca.groupOne.collegeSchedular;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class CourseLibrary {
-    private ArrayList<Course> courses;
 
+    private HashMap<Integer, Course> courses;
     /**
      * Constructor for thew CourseLibrary
      * Creates an empty ArrayList for the courses
      */
     public CourseLibrary(){
-        courses = new ArrayList<Course>();
+        courses = new HashMap<Integer, Course>();
     }
 
     /**
      * Returns the ArrayList for courses
      * @return the ArrayList of courses
      */
-    public ArrayList<Course> getCourses(){
+    public HashMap<Integer, Course> getCourses(){
         return courses;
     }
 
@@ -36,18 +37,12 @@ public class CourseLibrary {
         }
 
         //check if course already exists
-        if(courses.contains(course)){
-            throw new IllegalArgumentException("Course already exists");
-        }
-
-        for (Course c : courses) {
-            if(c.getCourseID() == course.getCourseID()){
-                throw new IllegalArgumentException("Course with that ID already exists");
-            }
-        }        
+        if(courses.containsKey(course.getCourseID())){
+            throw new IllegalArgumentException("Course with that ID already exists");
+        }     
 
         //add course to list
-        courses.add(course);
+        courses.put(course.getCourseID(), course);
     }
 
     /**
@@ -57,19 +52,13 @@ public class CourseLibrary {
      * @post - the course with the given id is removed, or the ArrayList remains the same if not found
      */
     public void removeCourse(int courseID){
-        boolean found = false;
-        for(int i = 0; i < courses.size(); i++){
-
-            if(courses.get(i).getCourseID() == courseID){
-                courses.remove(i);
-                i+= courses.size() + 1;
-                found = true;
-            }
-
-        }
+        boolean found = courses.containsKey(courseID);
 
         if(!found){
             throw new IllegalArgumentException("Course not found");
+        }
+        else{
+            courses.remove(courseID);
         }
     }
 }
