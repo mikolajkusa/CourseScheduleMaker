@@ -22,7 +22,66 @@ public class displaySchedule extends JFrame {
     public static void genSchedule(Schedule s) {
         ArrayList<Course> schedule = s.getCourses();
         for (Course c : schedule) {
-            
+            String timeSlot = c.getTimeSlot();
+            String[] dayNTime = timeSlot.split(" ");
+            if (dayNTime[0] == "MWF") {
+                if (dayNTime[1] == "9") {
+
+                }
+                if (dayNTime[1] == "10") {
+                    
+                }
+                if (dayNTime[1] == "11") {
+                    
+                }
+                if (dayNTime[1] == "12") {
+                    
+                }
+                if (dayNTime[1] == "1") {
+                    
+                }
+                if (dayNTime[1] == "2") {
+                    
+                }
+                if (dayNTime[1] == "3") {
+                    
+                }
+                if (dayNTime[1] == "4") {
+                    
+                }
+                if (dayNTime[1] == "5") {
+                    
+                }
+            }
+            if (dayNTime[0] == "TR") {
+                if (dayNTime[1] == "9") {
+
+                }
+                if (dayNTime[1] == "10") {
+                    
+                }
+                if (dayNTime[1] == "11") {
+                    
+                }
+                if (dayNTime[1] == "12") {
+                    
+                }
+                if (dayNTime[1] == "1") {
+                    
+                }
+                if (dayNTime[1] == "2") {
+                    
+                }
+                if (dayNTime[1] == "3") {
+                    
+                }
+                if (dayNTime[1] == "4") {
+                    
+                }
+                if (dayNTime[1] == "5") {
+                    
+                }
+            }
         }
     }
 
