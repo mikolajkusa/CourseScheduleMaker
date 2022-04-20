@@ -128,7 +128,7 @@ public class Professor extends Person{
      * @param newTime - String, the new time the course will be at
      * @throws IllegalArgumentException
      */
-    public void chageCourseTime(int courseID, String newTime) throws IllegalArgumentException{
+    public void changeCourseTime(int courseID, String newTime) throws IllegalArgumentException{
 
     }
 
