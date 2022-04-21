@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import javax.xml.validation.SchemaFactoryConfigurationError;
+
 import org.junit.jupiter.api.Test;
 
 public class ScheduleTest {
@@ -34,4 +36,31 @@ public class ScheduleTest {
         mySchedule.addCourse(calc6);
     }
     
+    @Test
+    void isTimeConflictTest(){
+        Course conflict1 = new Course(10200, 20, 4, "Physics", "sp2020", "MWF 8-10");
+        Course conflict2 = new Course(10300, 20, 4, "Physics", "sp2020", "MWF 8-10");
+        Course conflict3 = new Course(10400, 20, 4, "Physics", "sp2020", "MWF 9-11");
+
+        Course c1 = new Course(21100, 20, 4, "Math", "sp2020", "MWF 10-11");
+        Course c2 = new Course(21200, 20, 4, "Biology", "sp2020", "MWF 2-4");
+
+        Course c3 = new Course(31400, 20, 3, "Computer Science", "sp2020", "TuTh 10-11");
+
+        //Same day, same time - conflict
+        assertTrue(Schedule.isTimeConflict(conflict1, conflict2)); //exact same time slot
+        assertTrue(Schedule.isTimeConflict(conflict1, conflict3)); //1 hour overlap
+        assertTrue(Schedule.isTimeConflict(conflict2, conflict3)); //1 hour overlap
+
+        //Same day, different time - no conflict
+        assertFalse(Schedule.isTimeConflict(conflict1, c1)); //adjacent courses
+        assertFalse(Schedule.isTimeConflict(conflict1, c2));
+
+        //Different day, different time - no conflict
+        assertFalse(Schedule.isTimeConflict(c1, c3));
+
+        //Different day, different time - no conflict
+        assertFalse(Schedule.isTimeConflict(c2, c3));
+        
+    }
 }

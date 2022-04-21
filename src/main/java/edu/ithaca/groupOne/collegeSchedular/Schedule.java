@@ -31,6 +31,11 @@ public class Schedule {
         }
         courses.add(course);
     }
+
+    public static boolean isTimeConflict(Course c1, Course c2){
+        
+        return false;
+    }
     
     /**Removes a course from the schedule
      * @throws CourseNotFoundException if the course is not in the schedule
