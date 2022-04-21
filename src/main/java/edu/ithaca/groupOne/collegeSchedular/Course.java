@@ -52,6 +52,15 @@ public class Course {
 
     }
 
+    public static boolean isCourseValid(Course course){
+
+        if(course == null || course.courseID < 0 || course.maxStudentCount < 1){
+            return false;
+        }
+
+        return true;
+    }
+
     public int getCourseID(){
         return courseID;
     }
