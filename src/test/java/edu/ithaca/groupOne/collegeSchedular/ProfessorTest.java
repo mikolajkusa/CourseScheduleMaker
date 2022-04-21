@@ -10,20 +10,24 @@ public class ProfessorTest {
     @Test
     void addDeleteTest() throws CourseIdInUseException, IllegalArgumentException{
         Professor prof = new Professor("2002", "password");
+        assertEquals(0, Institution.getCourseLibrary().getCourses().size()); //equivalence case - nothing added to course library
         assertEquals(0, prof.getCoursesList().length); //Equivalence case - no courses made by the professor
         prof.createCourse(1, 10, 4, "computer science", "sp2022", "MWF 10-11");
         assertEquals(1, prof.getCoursesList().length); //Equivalence case - something in the courses map
         assertEquals(1, prof.getCourses().size());
+        assertEquals(1, Institution.getCourseLibrary().getCourses().size()); //course library updated as well
         assertThrows(CourseIdInUseException.class, ()->prof.createCourse(1, 100, 3, "physics", "fa2021", "TTH 9-10")); //Equivalence class - course id already in use
         prof.createCourse(50, 100, 3, "physics", "fa2021", "TTH 9-10");
         assertEquals(2, prof.getCoursesList().length); //Equivalence case - have multiple courses in course map
         assertEquals(2, prof.getCourses().size());
+        assertEquals(2, Institution.getCourseLibrary().getCourses().size());
         assertThrows(IllegalArgumentException.class, ()->prof.deleteCourse(13)); //Equivalence case - remove a course that does not exist
         assertEquals(2, prof.getCoursesList().length);
         assertEquals(2, prof.getCourses().size());
         prof.deleteCourse(1);
         assertEquals(1, prof.getCoursesList().length); //Equivalence case - removed a course
         assertEquals(1, prof.getCourses().size());
+        assertEquals(1, Institution.getCourseLibrary().getCourses().size());
         assertThrows(IllegalArgumentException.class, ()->prof.createCourse(2, 10, 4, "computer science", "sf2022", "MWF 10-11")); //makes sure semester is tested during course creation
         changeSemesterTest(); //more tests for making sure new semster is valid
         assertThrows(IllegalArgumentException.class, ()->prof.createCourse(2, 10, 4, "computer science", "sp2022", "asg")); //make sure time is tested during course creation

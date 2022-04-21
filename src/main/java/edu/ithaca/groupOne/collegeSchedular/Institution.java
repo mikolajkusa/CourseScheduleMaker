@@ -10,6 +10,7 @@ public class Institution {
     private static HashMap<String, Professor> professors = new HashMap<>();
     private static HashMap<String, Admin> admins = new HashMap<>();
     private static HashMap<String, Course> courses = new HashMap<>();
+    private static CourseLibrary courseLibrary = new CourseLibrary();
     private static ArrayList<String> majors = new ArrayList<>(Arrays.asList
         (
         "Computer Science",
@@ -96,5 +97,9 @@ public class Institution {
 
     public static int getMaxCourseLength(){
         return maxCourseLength;
+    }
+
+    public static CourseLibrary getCourseLibrary(){
+        return courseLibrary;
     }
 }
