@@ -9,6 +9,7 @@ public class ProfessorTest {
 
     @Test
     void addDeleteTest() throws CourseIdInUseException, IllegalArgumentException{
+        Institution.resetCourseLibrary(); //make sure library is empty for new tests
         Professor prof = new Professor("2002", "password");
         assertEquals(0, Institution.getCourseLibrary().getCourses().size()); //equivalence case - nothing added to course library
         assertEquals(0, prof.getCoursesList().length); //Equivalence case - no courses made by the professor
@@ -36,6 +37,7 @@ public class ProfessorTest {
 
     @Test
     void changeStudentCountTest() throws CourseIdInUseException, IllegalArgumentException{
+        Institution.resetCourseLibrary(); //make sure library is empty for new tests
         Professor prof = new Professor("2002", "password");
         prof.createCourse(1, 10, 4, "computer science", "sp2022", "MWF 10-11");
         assertEquals(10, prof.getCourses().get(1).getMaxStudentCount()); //equivalence case - no change in student count yet
@@ -50,6 +52,7 @@ public class ProfessorTest {
 
     @Test
     void changeCreditAmountTest() throws CourseIdInUseException, IllegalArgumentException{
+        Institution.resetCourseLibrary(); //make sure library is empty for new tests
         Professor prof = new Professor("2002", "password");
         prof.createCourse(1, 10, 4, "computer science", "sp2022", "MWF 10-11");
         assertEquals(4, prof.getCourses().get(1).getCredits()); //equivalence case - no change in number of credits yet
@@ -64,6 +67,7 @@ public class ProfessorTest {
 
     @Test
     void changeSemesterTest() throws CourseIdInUseException, IllegalArgumentException{
+        Institution.resetCourseLibrary(); //make sure library is empty for new tests
         Professor prof = new Professor("2002", "password");
         prof.createCourse(1, 10, 4, "computer science", "sp2022", "MWF 10-11");
         assertEquals("sp2022", prof.getCourses().get(1).getSemester()); //equivalance case - no change in semester yet
@@ -87,6 +91,7 @@ public class ProfessorTest {
 
     @Test
     void changeTimeTest() throws CourseIdInUseException, IllegalArgumentException{
+        Institution.resetCourseLibrary(); //make sure library is empty for new tests
         Professor prof = new Professor("2002", "password");
         prof.createCourse(1, 10, 4, "computer science", "sp2022", "MWF 10-11");
         assertEquals("MWF 10-11", prof.getCourses().get(1).getTimeSlot()); //equivalance case - no change in time yet

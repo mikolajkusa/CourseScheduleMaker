@@ -87,6 +87,10 @@ public class Institution {
         courses.put(cID, course);
     }
 
+    public static void resetCourseLibrary(){
+        courseLibrary = new CourseLibrary();
+    }
+
     public static String genID(int type){
         return null;
     }

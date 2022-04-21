@@ -25,11 +25,11 @@ public class Professor extends Person{
     public void deleteCourse(Integer courseId) throws IllegalArgumentException{
         if (courses.containsKey(courseId)){
             courses.remove(courseId);
+            Institution.getCourseLibrary().removeCourse(courseId);
         }
         else{
             throw new IllegalArgumentException();
         }
-        //NEED TO REMOVE COURSE FROM THE COURSE LIBRARY
     }
 
     /**
@@ -53,6 +53,9 @@ public class Professor extends Person{
         Course newCourse = new Course(courseID, maxStudentCount, credits, major, semester, timeSlot);
         if (courses.putIfAbsent(courseID, newCourse) != null){
             throw new CourseIdInUseException("This courseID is already in use.");
+        }
+        else{
+            Institution.getCourseLibrary().addCourse(newCourse);
         }
         //NEED TO ADD COURSE TO THE COURSE LIBRARY
     }
