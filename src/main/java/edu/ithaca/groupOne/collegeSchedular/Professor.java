@@ -150,7 +150,11 @@ public class Professor extends Person{
      * @param newName - String, the new name of the course
      */
     public void changeCourseName(int courseID, String newName){
-
+        Course course = courses.get(courseID);
+        if (course == null){
+            throw new IllegalArgumentException("Invalid course ID");
+        }
+        course.setName(newName);
     }
 
     /**
