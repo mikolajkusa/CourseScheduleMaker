@@ -57,7 +57,6 @@ public class Professor extends Person{
         else{
             Institution.getCourseLibrary().addCourse(newCourse);
         }
-        //NEED TO ADD COURSE TO THE COURSE LIBRARY
     }
 
     /**
