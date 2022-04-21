@@ -9,7 +9,6 @@ public class Institution {
     private static HashMap<String, Student> students = new HashMap<>();
     private static HashMap<String, Professor> professors = new HashMap<>();
     private static HashMap<String, Admin> admins = new HashMap<>();
-    private static HashMap<String, Course> courses = new HashMap<>();
     private static CourseLibrary courseLibrary = new CourseLibrary();
     private static ArrayList<String> majors = new ArrayList<>(Arrays.asList
         (
@@ -54,14 +53,6 @@ public class Institution {
     }
 
     /**
-     * @param cID
-     * @return Course assosiated with cID
-     */
-    public static Course getCourse(String cID){
-        return courses.get(cID);
-    }
-
-    /**
      * @param ID
      * @param person
      * @post adds ID(key) and person(value) to either studnets, professors, or admins HashMap
@@ -76,15 +67,6 @@ public class Institution {
         } else if (type == '3') {
             admins.put(ID, (Admin) person);
         }
-    }
-
-    /**
-     * @param cID
-     * @param course
-     * @post adds cID(key) and course(value) to course HashMap
-     */
-    public static void addCourse(String cID, Course course){
-        courses.put(cID, course);
     }
 
     /**

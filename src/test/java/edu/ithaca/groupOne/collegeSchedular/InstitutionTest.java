@@ -22,15 +22,6 @@ public class InstitutionTest {
     }
 
     @Test
-    public void addGetCourseTest(){
-        Course c = new Course(0, 0, 0, null, null, null);
-
-        Institution.addCourse("COMP345", c);
-
-        assertEquals(c, Institution.getCourse("COMP345"));
-    }
-
-    @Test
     public void isIDValidTest(){
         
     }
