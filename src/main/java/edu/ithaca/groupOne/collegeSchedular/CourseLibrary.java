@@ -18,8 +18,12 @@ public class CourseLibrary {
      * Returns an array of all courses courses created from the hashmap
      * @return the array of courses
      */
-    public Course[] getCourses(){
-        Course allCourses[] =  (Course[]) courses.values().toArray();
+    public ArrayList<Course> getCourses(){
+        ArrayList<Course> allCourses = new ArrayList<Course>();
+        for (Course course : courses.values()) {
+            allCourses.add(course);
+        }
+        
         return allCourses;
     }
 
