@@ -113,5 +113,16 @@ public class ProfessorTest {
         assertThrows(IllegalArgumentException.class, ()-> prof.changeCourseTime(1, "fewf 20-14")); //everything invalid
         assertThrows(IllegalArgumentException.class, ()-> prof.changeCourseTime(1, "MWF 2-7")); //course length too long
     }
+
+    @Test
+    void changeNameTest() throws IllegalArgumentException, CourseIdInUseException{
+        Institution.resetCourseLibrary(); //make sure library is empty for new tests
+        Professor prof = new Professor("2002", "password");
+        prof.createCourse(1, 10, 4, "computer science", "sp2022", "MWF 10-11");
+        assertEquals("untitled", prof.getCourses().get(1).getName()); //equivalence case - default course name
+        assertThrows(IllegalArgumentException.class, ()-> prof.changeCourseName(2, "newName")); //equivalence case - invalid course id
+        prof.changeCourseName(1, "new name"); //equivalence case - change course name
+        assertEquals("new name", prof.getCourses().get(1).getName());
+    }
     
 }

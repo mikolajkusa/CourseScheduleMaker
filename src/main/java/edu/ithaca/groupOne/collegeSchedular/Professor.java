@@ -145,6 +145,15 @@ public class Professor extends Person{
     }
 
     /**
+     * Changes the course name
+     * @param courseID - int, the id of the course
+     * @param newName - String, the new name of the course
+     */
+    public void changeCourseName(int courseID, String newName){
+
+    }
+
+    /**
      * Determines if a new semester is a valid semester
      * @param semester - String, the new semester to check
      * @return boolean, true if the semester is valid, false if otherwise
