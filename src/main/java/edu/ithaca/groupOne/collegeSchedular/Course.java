@@ -10,6 +10,7 @@ public class Course {
     private String semester;
     private boolean isAvailable;
     private String timeSlot;
+    private String name;
 
     public Course(int courseID, int maxStudentCount, double credits, String major, String semester, String timeSlot){
         this.courseID = courseID;
@@ -20,6 +21,27 @@ public class Course {
         this.semester = semester;
         isAvailable = false;
         this.timeSlot = timeSlot;
+        this.name = "untitled";
+    }
+
+    public Course(int courseID, int maxStudentCount, double credits, String major, String semester, String timeSlot, String name){
+        this.courseID = courseID;
+        studentCount = 0;
+        this.maxStudentCount = maxStudentCount;
+        this.credits = credits;
+        this.major = major;
+        this.semester = semester;
+        isAvailable = false;
+        this.timeSlot = timeSlot;
+        this.name = name;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
     /**
      * Decrements the student count for a course
