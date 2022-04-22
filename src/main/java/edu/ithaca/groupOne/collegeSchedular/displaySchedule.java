@@ -14,73 +14,84 @@ public class displaySchedule extends JFrame {
     private displaySchedule() {
         super("Schedule");
             // width height 
-        setSize(580, 500);
+        setSize(580, 520);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }
 
     public static void genSchedule(Schedule s) {
+        displaySchedule window = new displaySchedule();
+        window.setShell();
+        genSchedule(s, window);
+    }
+
+    private static void genSchedule(Schedule s, displaySchedule window) {
         ArrayList<Course> schedule = s.getCourses();
+        //could be an enum?
+        int M = 115;
+        int T = 215;
+        int W = 315;
+        int R = 415;
+        int F = 515;
+
         for (Course c : schedule) {
             String timeSlot = c.getTimeSlot();
             String[] dayNTime = timeSlot.split(" ");
-            if (dayNTime[0] == "MWF") {
-                if (dayNTime[1] == "9") {
-
-                }
-                if (dayNTime[1] == "10") {
-                    
-                }
-                if (dayNTime[1] == "11") {
-                    
-                }
-                if (dayNTime[1] == "12") {
-                    
-                }
-                if (dayNTime[1] == "1") {
-                    
-                }
-                if (dayNTime[1] == "2") {
-                    
-                }
-                if (dayNTime[1] == "3") {
-                    
-                }
-                if (dayNTime[1] == "4") {
-                    
-                }
-                if (dayNTime[1] == "5") {
-                    
-                }
+            String[] time = dayNTime[1].split("-");
+            int timeLoc = 0;
+            //this could also be enum?
+            if (time[0].equals("9")) {
+                timeLoc = 30;
             }
-            if (dayNTime[0] == "TR") {
-                if (dayNTime[1] == "9") {
+            if (time[0].equals("10")) {
+                timeLoc = 80;
+            }
+            if (time[0].equals("11")) {
+                timeLoc = 130;
+            }
+            if (time[0].equals("12")) {
+                timeLoc = 180;
+            }
+            if (time[0].equals("1")) {
+                timeLoc = 230;
+            }
+            if (time[0].equals("2")) {
+                timeLoc = 280;
+            }
+            if (time[0].equals("3")) {
+                timeLoc = 330;
+            }
+            if (time[0].equals("4")) {
+                timeLoc = 380;
+            }
+            if (time[0].equals("5")) {
+                timeLoc = 430;
+            }
+            if (dayNTime[0].equals("MWF")) {
+                JLabel mon = new JLabel(c.getName());
+                JLabel wed = new JLabel(c.getName());
+                JLabel fri = new JLabel(c.getName());
+                mon.setBounds(M, timeLoc, 50, 50);
+                wed.setBounds(W, timeLoc, 50, 50);
+                fri.setBounds(F, timeLoc, 50, 50);
+                window.add(mon);
+                window.add(wed);
+                window.add(fri);
+                JLabel nothing = new JLabel("");
+                nothing.setBounds(530, 0, 0, 0);
+                window.add(nothing);
 
-                }
-                if (dayNTime[1] == "10") {
-                    
-                }
-                if (dayNTime[1] == "11") {
-                    
-                }
-                if (dayNTime[1] == "12") {
-                    
-                }
-                if (dayNTime[1] == "1") {
-                    
-                }
-                if (dayNTime[1] == "2") {
-                    
-                }
-                if (dayNTime[1] == "3") {
-                    
-                }
-                if (dayNTime[1] == "4") {
-                    
-                }
-                if (dayNTime[1] == "5") {
-                    
-                }
+            }
+            if (dayNTime[0].equals("TR")) {
+                JLabel tue = new JLabel(c.getName());
+                JLabel thur = new JLabel(c.getName());
+                tue.setBounds(T, timeLoc, 50, 50);
+                thur.setBounds(R, timeLoc, 50, 50);
+                window.add(tue);
+                window.add(thur);
+                JLabel nothing = new JLabel("");
+                nothing.setBounds(530, 0, 0, 0);
+                window.add(nothing);
             }
         }
     }
@@ -160,15 +171,15 @@ public class displaySchedule extends JFrame {
         Graphics2D g2d = (Graphics2D) g;
         
         //horizontal 
-        g2d.drawLine(0, 65, 580, 65);
-        g2d.drawLine(0, 110, 580, 110);
-        g2d.drawLine(0, 165, 580, 165);
-        g2d.drawLine(0, 210, 580, 210);
-        g2d.drawLine(0, 265, 580, 265);
-        g2d.drawLine(0, 310, 580, 310);
-        g2d.drawLine(0, 365, 580, 365);
-        g2d.drawLine(0, 410, 580, 410);
-        g2d.drawLine(0, 465, 580, 465);
+        g2d.drawLine(0, 65, 600, 65);
+        g2d.drawLine(0, 110, 600, 110);
+        g2d.drawLine(0, 165, 600, 165);
+        g2d.drawLine(0, 210, 600, 210);
+        g2d.drawLine(0, 265, 600, 265);
+        g2d.drawLine(0, 310, 600, 310);
+        g2d.drawLine(0, 365, 600, 365);
+        g2d.drawLine(0, 410, 600, 410);
+        g2d.drawLine(0, 465, 600, 465);
 
 
         //vertical
@@ -178,16 +189,6 @@ public class displaySchedule extends JFrame {
         g2d.drawLine(380, 0, 380, 550);
         g2d.drawLine(480, 0, 480, 550);
         
-        /*
-
-        g2d.drawLine(150, 0, 150, 550);
-
-        g2d.drawLine(250, 0, 250, 550);
-
-        g2d.drawLine(350, 0, 350, 550);
-
-        g2d.drawLine(450, 0, 450, 550);
-        */
     }
 
 
@@ -196,8 +197,9 @@ public class displaySchedule extends JFrame {
         this.setDays();   
     }
 
-    public static void main(String[] args) {  
+    public static void emptyWindow() {
         displaySchedule window = new displaySchedule();
         window.setShell();
-    }  
+    }
+
 }  
