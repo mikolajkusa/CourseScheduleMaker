@@ -13,7 +13,8 @@ public class ScheduleTest {
     public void addRemoveScheduleTest() throws TimeConflictException, CourseNotFoundException{
         Course phys2 = new Course(10200, 20, 4, "Physics", "Spring", "MWF 8-10");
         Course calc3 = new Course(21100, 20, 4, "Math", "Spring", "MWF 9-10");
-        Course calc4 = new Course(21200, 20, 4, "Math", "Spring", "TR 8-10");
+        //Course calc4 = new Course(21200, 20, 4, "Math", "Spring", "TR 8-10");
+        Course calc4 = new Course(21200, 20, 4, "Math", "Spring", "TuTh 8-10"); //Trav - changed the Tues-Thurs format
         Course calc5 = new Course(21300, 20, 4, "Math", "Spring", "MWF 10-12");
         Course calc6 = new Course(21300, 20, 4, "Math", "Spring", "MWF 8-9");
         Schedule mySchedule = new Schedule("Mikolaj's Schedule");
