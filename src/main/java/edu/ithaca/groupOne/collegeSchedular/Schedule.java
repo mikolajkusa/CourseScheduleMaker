@@ -15,19 +15,10 @@ public class Schedule {
      * @throws TimeConflictException if the new course conflicts with pre-existing course
      */
     public void addCourse(Course course) throws TimeConflictException{
-        String timeSlot = course.getTimeSlot();
-        String[] courseSlot = timeSlot.split(" ");
         for(int i = 0; i<courses.size();i++){
-            String[] oldCourseTime = courses.get(i).getTimeSlot().split(" ");
-            if(courseSlot[0].equals(oldCourseTime[0])){
-                String[] newTime = courseSlot[1].split("-");
-                String[] oldTime = oldCourseTime[1].split("-");
-                if(Double.parseDouble(newTime[0])<Double.parseDouble(oldTime[1]) && Double.parseDouble(newTime[1])>Double.parseDouble(oldTime[0])){
-                    throw new TimeConflictException("The time slots overlap; can't add new course to schedule");
-                }
-
+            if(Schedule.isTimeConflict(course, courses.get(i))){
+                throw new TimeConflictException("This course has a time conflict with another course!");
             }
-            
         }
         courses.add(course);
     }

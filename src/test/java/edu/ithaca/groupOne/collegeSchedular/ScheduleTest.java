@@ -45,23 +45,28 @@ public class ScheduleTest {
 
         Course c1 = new Course(21100, 20, 4, "Math", "sp2020", "MWF 10-11");
         Course c2 = new Course(21200, 20, 4, "Biology", "sp2020", "MWF 2-4");
-
         Course c3 = new Course(31400, 20, 3, "Computer Science", "sp2020", "TuTh 10-11");
+        Course c4 = new Course(31500, 20, 3, "Computer Science", "sp2020", "TuTh 11-12");
+        Course c5 = new Course(31600, 20, 3, "Computer Science", "sp2020", "TuTh 4-6");
+        Course c6 = new Course(11400, 20, 3, "Computer Science", "sp2020", "TuTh 7-9");
 
         //Same day, same time - conflict
         assertTrue(Schedule.isTimeConflict(conflict1, conflict2)); //exact same time slot
         assertTrue(Schedule.isTimeConflict(conflict1, conflict3)); //1 hour overlap
         assertTrue(Schedule.isTimeConflict(conflict2, conflict3)); //1 hour overlap
+        assertTrue(Schedule.isTimeConflict(c1, c1)); //same course
 
         //Same day, different time - no conflict
-        assertFalse(Schedule.isTimeConflict(conflict1, c1)); //adjacent courses
+        assertFalse(Schedule.isTimeConflict(conflict1, c1)); //adjacent times
         assertFalse(Schedule.isTimeConflict(conflict1, c2));
 
-        //Different day, different time - no conflict
-        assertFalse(Schedule.isTimeConflict(c1, c3));
+        //Different day, same time - no conflict
+        assertFalse(Schedule.isTimeConflict(c1, c3)); //same time
+        assertFalse(Schedule.isTimeConflict(c1, c4));//adjacent times
 
         //Different day, different time - no conflict
         assertFalse(Schedule.isTimeConflict(c2, c3));
-        
+        assertFalse(Schedule.isTimeConflict(c2, c5)); //adjacent times
+        assertFalse(Schedule.isTimeConflict(c2, c6));
     }
 }
