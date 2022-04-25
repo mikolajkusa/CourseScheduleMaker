@@ -32,9 +32,15 @@ public class Schedule {
         courses.add(course);
     }
 
+
+    /**
+     * Tests whether or not two courses have a time conflict
+     * @param c1 - the first course being tested
+     * @param c2 - the second course being tested
+     * @return true if the courses overlap in time, false otherwise
+     */
     public static boolean isTimeConflict(Course c1, Course c2){
         //Initialize variables
-
         //Start/End times for 7 days of the week, -1 denotes that the class does not meet that day
         //Order: Su-M-Tu-W-Th-F-Sa
         float startTimes1[] = {-1, -1, -1, -1, -1, -1, -1};
@@ -149,6 +155,11 @@ public class Schedule {
         return false;
     }
 
+    /**
+     * Converts a String into a float representing the same Time value
+     * @param time - the String being converted
+     * @return the float value that represents the same time value as the String
+     */
     private static float getTimeFromString(String time){
         //NOTE: Right now only handles even hour increments
         //Class can only be scheduled from 7am - 6pm
