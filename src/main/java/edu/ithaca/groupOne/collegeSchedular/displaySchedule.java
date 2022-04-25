@@ -20,13 +20,9 @@ public class displaySchedule extends JFrame {
     }
 
     public static void genSchedule(Schedule s) {
+        ArrayList<Course> schedule = s.getCourses();
         displaySchedule window = new displaySchedule();
         window.setShell();
-        genSchedule(s, window);
-    }
-
-    private static void genSchedule(Schedule s, displaySchedule window) {
-        ArrayList<Course> schedule = s.getCourses();
         //could be an enum?
         int M = 115;
         int T = 215;
