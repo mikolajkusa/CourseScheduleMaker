@@ -8,7 +8,7 @@ public class Institution {
     private static HashMap<String, Student> students = new HashMap<>();
     private static HashMap<String, Professor> professors = new HashMap<>();
     private static HashMap<String, Admin> admins = new HashMap<>();
-    private static HashMap<String, Course> courses = new HashMap<>();
+    protected static HashMap<String, Course> courses = new HashMap<>();
     private static ArrayList<String> majors = new ArrayList<>(Arrays.asList
         (
         "Computer Science",
