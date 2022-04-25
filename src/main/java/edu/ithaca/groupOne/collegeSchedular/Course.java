@@ -12,14 +12,19 @@ public class Course {
     private String timeSlot;
 
     public Course(int courseID, int maxStudentCount, double credits, String major, String semester, String timeSlot) throws IllegalArgumentException{
-        this.courseID = courseID;
-        studentCount = 0;
-        this.maxStudentCount = maxStudentCount;
-        this.credits = credits;
-        this.major = major;
-        this.semester = semester;
-        isAvailable = false;
-        this.timeSlot = timeSlot;
+        if(courseIsValid(timeSlot)){
+            this.courseID = courseID;
+            studentCount = 0;
+            this.maxStudentCount = maxStudentCount;
+            this.credits = credits;
+            this.major = major;
+            this.semester = semester;
+            isAvailable = false;
+            this.timeSlot = timeSlot;
+        }
+        else{
+            throw new IllegalArgumentException("Time slot is invalid");
+        }
     }
     /**
      * Decrements the student count for a course
@@ -117,7 +122,23 @@ public class Course {
      * Checks whether time slots and semester formats are valid
      * @return validity, true or false
      */
-    public static boolean courseIsValid(){
-        return false;
+    public static boolean courseIsValid(String timeSlot){
+        if(!timeSlot.contains("MWF ")&&!timeSlot.contains("TR ")){
+            return false;
+        }
+        try{
+            String[] timeSlotArray = timeSlot.split(" ");
+            String[] times = timeSlotArray[1].split("-");
+            double time_0 = Double.parseDouble(times[0]);
+            double time_1 = Double.parseDouble(times[1]);
+            if(time_1<time_0 || time_0<0 || time_1<0 || time_0>=24 || time_1>=24){
+                return false;
+            }
+        }
+        catch(Exception error){
+            return false;
+        }
+        
+        return true;
     }
 }

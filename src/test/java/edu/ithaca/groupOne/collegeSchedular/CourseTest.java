@@ -46,7 +46,7 @@ public void addRemoveStudentTest() throws CourseUnavailableException, StudentMax
     testCourse.setAvailability(false);
     assertThrows(CourseUnavailableException.class, ()->testCourse.removeStudent()); 
 }
-
+@Test
 public void courseIsValidTest(){
     assertThrows(IllegalArgumentException.class, ()->new Course(10500, 20, 4, "Physics", "Spring", "TT 8-10"));
     assertThrows(IllegalArgumentException.class, ()->new Course(10500, 20, 4, "Physics", "Spring", "MW 8-10"));
@@ -59,10 +59,6 @@ public void courseIsValidTest(){
     assertThrows(IllegalArgumentException.class, ()->new Course(10500, 20, 4, "Physics", "Spring", "TR asbds"));
 
     assertThrows(IllegalArgumentException.class, ()->new Course(10500, 20, 4, "Physics", "Spring", "MWF 8.10"));
-
-   
-
-
 }
 
     
