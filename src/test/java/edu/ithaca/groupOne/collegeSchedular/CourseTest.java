@@ -3,6 +3,8 @@ package edu.ithaca.groupOne.collegeSchedular;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+
+
 import org.junit.jupiter.api.Test;
 
 public class CourseTest {
@@ -45,6 +47,23 @@ public void addRemoveStudentTest() throws CourseUnavailableException, StudentMax
     assertThrows(CourseUnavailableException.class, ()->testCourse.removeStudent()); 
 }
 
+public void courseIsValidTest(){
+    assertThrows(IllegalArgumentException.class, ()->new Course(10500, 20, 4, "Physics", "Spring", "TT 8-10"));
+    assertThrows(IllegalArgumentException.class, ()->new Course(10500, 20, 4, "Physics", "Spring", "MW 8-10"));
+    assertThrows(IllegalArgumentException.class, ()->new Course(10500, 20, 4, "Physics", "Spring", "MF 8-10"));
+
+    assertThrows(IllegalArgumentException.class, ()->new Course(10500, 20, 4, "Physics", "Spring", "TR 8:10"));
+
+    assertThrows(IllegalArgumentException.class, ()->new Course(10500, 20, 4, "Physics", "Spring", "MWF 8 10"));
+
+    assertThrows(IllegalArgumentException.class, ()->new Course(10500, 20, 4, "Physics", "Spring", "TR asbds"));
+
+    assertThrows(IllegalArgumentException.class, ()->new Course(10500, 20, 4, "Physics", "Spring", "MWF 8.10"));
+
+   
+
+
+}
 
     
 }

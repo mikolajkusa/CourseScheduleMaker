@@ -11,7 +11,7 @@ public class Course {
     private boolean isAvailable;
     private String timeSlot;
 
-    public Course(int courseID, int maxStudentCount, double credits, String major, String semester, String timeSlot){
+    public Course(int courseID, int maxStudentCount, double credits, String major, String semester, String timeSlot) throws IllegalArgumentException{
         this.courseID = courseID;
         studentCount = 0;
         this.maxStudentCount = maxStudentCount;
@@ -112,5 +112,12 @@ public class Course {
 
     public void setCredits(int credits){
         this.credits = credits;
+    }
+    /**
+     * Checks whether time slots and semester formats are valid
+     * @return validity, true or false
+     */
+    public static boolean courseIsValid(){
+        return false;
     }
 }
