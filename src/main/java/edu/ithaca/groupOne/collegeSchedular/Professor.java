@@ -219,6 +219,9 @@ public class Professor extends Person{
             if (timeEnd > 12 || timeEnd < 1){
                 return false;
             }
+            if (timeStart < 7 && timeEnd > 6){ //check to make sure that time intervals are between 7am and 6pm
+                return false;
+            }
             if (timeStart > timeEnd){
                 int t = timeStart + Institution.getMaxCourseLength(); //check for wrap around from 12-1 or similar
                 if (t > 12){
