@@ -1,7 +1,5 @@
 package edu.ithaca.groupOne.collegeSchedular;
 
-import javax.sound.midi.Soundbank;
-
 public class SprintDemo1 {
     
     public static void main(String[] args) {
@@ -21,10 +19,6 @@ public class SprintDemo1 {
             System.out.println("Login successful");
         else
             System.out.println("Login failed");
-
-        
-        //Institution class demo
-        Institution institution = new Institution();
 
         //Show class diagram
 
