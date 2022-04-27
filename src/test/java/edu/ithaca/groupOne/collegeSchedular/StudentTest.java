@@ -8,17 +8,55 @@ public class StudentTest {
     
     @Test
     void createScheduleTest(){
+        Student trav = new Student("704123", "Computer Science", "SicParvisMagna");
+        
+        //Student starts with 0 schedules
+        assertTrue(trav.getSchedules().length == 0);
 
+        //Creates 1 schedule
+        trav.createSchedule("Fall classes");
+        assertTrue(trav.getSchedules().length == 1);
+
+        //Creates 1 more schedule, total now is 2
+        trav.createSchedule("Spring classes");
+        assertTrue(trav.getSchedules().length == 2);
+
+        //Schedule with empty name field, not allowed
+        assertThrows(IllegalArgumentException.class, () -> trav.createSchedule(""));
+        assertTrue(trav.getSchedules().length == 2);
+
+        //Schedule with same name field as another, not allowed
+        assertThrows(IllegalArgumentException.class, () -> trav.createSchedule("Spring classes"));
+        assertTrue(trav.getSchedules().length == 2);
     }
 
     @Test
     void addCourseToScheduleTest(){
-
+        
     }
 
     @Test
     void removeScheduleTest(){
+        Student trav = new Student("704123", "Computer Science", "SicParvisMagna");
+        
+        //Student starts with 0 schedules
+        assertTrue(trav.getSchedules().length == 0);
 
+        //Creates 2 schedules
+        trav.createSchedule("Spring classes");
+        trav.createSchedule("Fall classes");
+        assertTrue(trav.getSchedules().length == 2);
+
+        //remove 1 schedule
+        trav.removeSchedule("Spring classes");
+        assertTrue(trav.getSchedules().length == 1); //removed a schedule
+        assertTrue(trav.getSchedules()[0].getName() == "Fall classes"); //removed the right schedule
+
+        //Attempt to remove a schedule that does not exist
+        assertThrows(IllegalArgumentException.class, () -> trav.removeSchedule("F1")); 
+        assertThrows(IllegalArgumentException.class, () -> trav.removeSchedule("Fall classe")); //off by one char
+        assertThrows(IllegalArgumentException.class, () -> trav.removeSchedule("Fall classes ")); //off by one char
+        assertTrue(trav.getSchedules().length == 1); //did not remove a schedule
     }
 
     @Test
