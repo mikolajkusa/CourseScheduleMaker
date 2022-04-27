@@ -1,9 +1,5 @@
 package edu.ithaca.groupOne.collegeSchedular;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> main
 public class SprintDemo1 {
     
     public static void main(String[] args) {
