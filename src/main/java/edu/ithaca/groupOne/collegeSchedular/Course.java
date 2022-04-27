@@ -10,6 +10,7 @@ public class Course {
     private String semester;
     private boolean isAvailable;
     private String timeSlot;
+    private String name;
 
     public Course(int courseID, int maxStudentCount, double credits, String major, String semester, String timeSlot){
         this.courseID = courseID;
@@ -20,7 +21,17 @@ public class Course {
         this.semester = semester;
         isAvailable = true;
         this.timeSlot = timeSlot;
+        this.name = "untitled";
     }
+
+    public String getName(){
+        return this.name;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
+
     /**
      * Decrements the student count for a course
      * @throws CourseEmptyException if student count is zero
@@ -119,7 +130,7 @@ public class Course {
         this.major = major;
     }
 
-    public void setCredits(int credits){
+    public void setCredits(double credits){
         this.credits = credits;
     }
 

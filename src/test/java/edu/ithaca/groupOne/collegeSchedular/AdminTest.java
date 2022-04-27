@@ -12,7 +12,6 @@ public class AdminTest {
     public void addRemoveStudentTest() throws CourseUnavailableException, StudentMaximumExceededException, InsufficientCreditsException, AlreadyEnrolledException, CourseEmptyException{
         Admin admin = new Admin("312345","dinosaurz");
         Course comp171 = new Course(17100,20,4,"Computer Science", "Fall","MWF 10-10.50");
-        Institution.addCourse("17100", comp171);
         Student al = new Student("123456","Computer Science","ilovecompsci123");
         Institution.addPerson("123456", al);
         comp171.setAvailability(true);

@@ -9,7 +9,7 @@ public class InstitutionTest {
     @Test
     public void addGetPersonTest(){
         Person s = new Student("1001", "computer science", "password");
-        Person p = new Professor();
+        Person p = new Professor("2002", "password");
         Person a = new Admin("323456","dinosaurz");
 
         Institution.addPerson("123456", s);
@@ -19,15 +19,6 @@ public class InstitutionTest {
         assertEquals(s, Institution.getPerson("123456"));
         assertEquals(p, Institution.getPerson("223456"));
         assertEquals(a, Institution.getPerson("323456"));
-    }
-
-    @Test
-    public void addGetCourseTest(){
-        Course c = new Course(0, 0, 0, null, null, null);
-
-        Institution.addCourse("COMP345", c);
-
-        assertEquals(c, Institution.getCourse("COMP345"));
     }
 
     @Test

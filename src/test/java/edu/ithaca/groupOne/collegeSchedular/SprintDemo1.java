@@ -1,7 +1,5 @@
 package edu.ithaca.groupOne.collegeSchedular;
 
-import javax.sound.midi.Soundbank;
-
 public class SprintDemo1 {
     
     public static void main(String[] args) {
@@ -22,10 +20,6 @@ public class SprintDemo1 {
         else
             System.out.println("Login failed");
 
-        
-        //Institution class demo
-        Institution institution = new Institution();
-
         //Show class diagram
 
         //Show sequence diagram
@@ -38,30 +32,6 @@ public class SprintDemo1 {
         student.changeMajor("Biology");
 
         System.out.println("Student major now: " + student.getMajor());
-
-        //Course library demo
-        System.out.println();
-        System.out.println("Retrieving course with ID: 6");
-        try {
-            Institution.getCourse("6");
-            System.out.println("Course found");
-        } catch (Exception e) {
-            //TODO: handle exception
-            System.out.println("Course not found");
-        }
-
-        System.out.println("Adding course with ID: 6");
-        Course course = new Course(6, 10, 4, "Biology", "Spring", "async");
-        Institution.addCourse("6", course);
-
-        System.out.println("Retrieving course with ID: 6");
-        try {
-            Institution.getCourse("6");
-            System.out.println("Course found");
-        } catch (Exception e) {
-            //TODO: handle exception
-            System.out.println("Course not found");
-        }
 
         //Student and Abstract Person demo
         //Student created earlier with major

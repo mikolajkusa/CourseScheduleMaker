@@ -5,10 +5,11 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 public class Institution {
+    private static int maxCourseLength = 4;
     private static HashMap<String, Student> students = new HashMap<>();
     private static HashMap<String, Professor> professors = new HashMap<>();
     private static HashMap<String, Admin> admins = new HashMap<>();
-    protected static HashMap<String, Course> courses = new HashMap<>();
+    private static CourseLibrary courseLibrary = new CourseLibrary();
     private static ArrayList<String> majors = new ArrayList<>(Arrays.asList
         (
         "Computer Science",
@@ -52,14 +53,6 @@ public class Institution {
     }
 
     /**
-     * @param cID
-     * @return Course assosiated with cID
-     */
-    public static Course getCourse(String cID){
-        return courses.get(cID);
-    }
-
-    /**
      * @param ID
      * @param person
      * @post adds ID(key) and person(value) to either studnets, professors, or admins HashMap
@@ -77,12 +70,10 @@ public class Institution {
     }
 
     /**
-     * @param cID
-     * @param course
-     * @post adds cID(key) and course(value) to course HashMap
+     * Resets the course library
      */
-    public static void addCourse(String cID, Course course){
-        courses.put(cID, course);
+    public static void resetCourseLibrary(){
+        courseLibrary = new CourseLibrary();
     }
 
     public static String genID(int type){
@@ -93,6 +84,11 @@ public class Institution {
         return false;
     }
 
-    
-    
+    public static int getMaxCourseLength(){
+        return maxCourseLength;
+    }
+
+    public static CourseLibrary getCourseLibrary(){
+        return courseLibrary;
+    }
 }
