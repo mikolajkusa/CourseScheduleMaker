@@ -14,3 +14,4 @@ Note taker - Will
 Sprint 2:
 Goal: Produce a schedule that has complete functionality - editable, functional, manageable
 UML: https://drive.google.com/file/d/1O1lVflmKJrgWFZMmG-1vMgSoPTUHVyc9/view?usp=sharing
+Sprint review/demo agenda: https://docs.google.com/document/d/1q4X0QQ_ai8XFbp_Yq8q1hKzz2tTrCRZtPFDNxhnihao/edit?usp=sharing

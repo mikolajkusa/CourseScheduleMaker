@@ -19,7 +19,7 @@ public class Course {
         this.credits = credits;
         this.major = major;
         this.semester = semester;
-        isAvailable = false;
+        isAvailable = true;
         this.timeSlot = timeSlot;
         this.name = "untitled";
     }
@@ -43,6 +43,7 @@ public class Course {
     public void setName(String name) {
         this.name = name;
     }
+
     /**
      * Decrements the student count for a course
      * @throws CourseEmptyException if student count is zero
@@ -72,6 +73,15 @@ public class Course {
         }
         studentCount++;
 
+    }
+
+    public static boolean isCourseValid(Course course){
+
+        if(course == null || course.courseID < 0 || course.maxStudentCount < 1){
+            return false;
+        }
+
+        return true;
     }
 
     public int getCourseID(){
@@ -132,7 +142,11 @@ public class Course {
         this.major = major;
     }
 
-    public void setCredits(int credits){
+    public void setCredits(double credits){
         this.credits = credits;
+    }
+
+    public String toString(){
+        return major + ": " + timeSlot;
     }
 }
