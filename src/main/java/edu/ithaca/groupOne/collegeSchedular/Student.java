@@ -23,6 +23,7 @@ public class Student extends Person {
         this.password = password;
         numCredits = 18;
         classes = new ArrayList<Course>();
+        schedules = new HashMap<>();
     }
 
     /**
@@ -30,7 +31,17 @@ public class Student extends Person {
      * @param name : String, the name of the schedule
      */
     public void createSchedule(String name){
+        
+        if(name.length()  <= 0){
+            throw new IllegalArgumentException("No name for the schedule");
+        }
 
+        if(schedules.containsKey(name)){
+            throw new IllegalArgumentException("Already a schedule with this name");
+        }
+
+        
+        schedules.put(name, new Schedule(name));
     }
 
     /**
@@ -47,7 +58,16 @@ public class Student extends Person {
      * @param name : String, schedule's name to remove
      */
     public void removeSchedule(String name){
+        if(name.length()  <= 0){
+            throw new IllegalArgumentException("No name for the schedule");
+        }
 
+        if(!schedules.containsKey(name)){
+            throw new IllegalArgumentException("There is no schedule with this name");
+        }
+
+        
+        schedules.remove(name);
     }
 
     /**
@@ -79,7 +99,7 @@ public class Student extends Person {
     public Schedule[] getSchedules(){ 
         Collection<Schedule> sch = schedules.values();
         Schedule[] s = new Schedule[sch.size()];
-        return sch.toArray(s);
+        return sch.toArray(new Schedule[0]);
     }
 
     /**
