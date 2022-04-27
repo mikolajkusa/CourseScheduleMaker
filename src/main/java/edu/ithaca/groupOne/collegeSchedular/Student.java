@@ -1,11 +1,13 @@
 package edu.ithaca.groupOne.collegeSchedular;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 
 public class Student extends Person {
 
     private String major;
-    private Schedule[] schedules; //think about making this something other than an array - map with key as name or something
+    private HashMap<String, Schedule> schedules; //think about making this something other than an array - map with key as name or something
     private double numCredits;
     private ArrayList<Course> classes;
     
@@ -74,8 +76,10 @@ public class Student extends Person {
      * Gets the collection of schedules the student has made
      * @return FIGURE OUT DATA TYPE : All the schedules the student has made
      */
-    public Schedule[] getSchedules(){ //maybe not make it an array, think about data types
-        return schedules;
+    public Schedule[] getSchedules(){ 
+        Collection<Schedule> sch = schedules.values();
+        Schedule[] s = new Schedule[sch.size()];
+        return sch.toArray(s);
     }
 
     /**
