@@ -2,12 +2,10 @@ package edu.ithaca.groupOne.collegeSchedular;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.geom.Line2D;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.SwingUtilities;
 
 public class displaySchedule extends JFrame {  
 
