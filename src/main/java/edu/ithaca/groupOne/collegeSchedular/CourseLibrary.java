@@ -15,6 +15,15 @@ public class CourseLibrary {
     }
 
     /**
+     * Gets a specified course
+     * @param id - int, the id of the course to get
+     * @return the course, null if id is invalid
+     */
+    public Course getCourse(int id){
+        return courses.get(id);
+    }
+
+    /**
      * Returns an array of all courses courses created from the hashmap
      * @return the array of courses
      */
