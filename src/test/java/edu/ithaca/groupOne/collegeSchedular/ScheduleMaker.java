@@ -34,6 +34,7 @@ public class ScheduleMaker {
             System.out.println("Please input the cID of the course you wish to add to the schedule:");
             cID = in.next();
         }
+        in.close();
         //INSERT PRINT SCHEDULE CODE HERE. USE "mySchedule". -MICKY
 
     }
