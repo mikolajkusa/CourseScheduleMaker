@@ -19,7 +19,7 @@ public class Course {
         this.credits = credits;
         this.major = major;
         this.semester = semester;
-        isAvailable = false;
+        isAvailable = true;
         this.timeSlot = timeSlot;
         this.name = "untitled";
     }
@@ -132,5 +132,9 @@ public class Course {
 
     public void setCredits(double credits){
         this.credits = credits;
+    }
+
+    public String toString(){
+        return major + ": " + timeSlot;
     }
 }
