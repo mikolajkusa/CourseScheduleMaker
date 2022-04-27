@@ -102,7 +102,6 @@ public class Student extends Person {
      */
     public Schedule[] getSchedules(){ 
         Collection<Schedule> sch = schedules.values();
-        Schedule[] s = new Schedule[sch.size()];
         return sch.toArray(new Schedule[0]);
     }
 
