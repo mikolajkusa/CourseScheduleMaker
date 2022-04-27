@@ -17,6 +17,11 @@ public class Professor extends Person{
         courses = new TreeMap<>();
     }
 
+    public Professor() {
+        this.id = "1234";
+        this.password = "password";
+    }
+
     /**
      * Delete the course from the courses map
      * @param courseId - the id of the course to delete

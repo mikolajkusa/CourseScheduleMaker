@@ -24,11 +24,23 @@ public class Course {
         this.name = "untitled";
     }
 
-    public String getName(){
+    public Course(int courseID, int maxStudentCount, double credits, String major, String semester, String timeSlot, String name){
+        this.courseID = courseID;
+        studentCount = 0;
+        this.maxStudentCount = maxStudentCount;
+        this.credits = credits;
+        this.major = major;
+        this.semester = semester;
+        isAvailable = false;
+        this.timeSlot = timeSlot;
+        this.name = name;
+    }
+
+    public String getName() {
         return this.name;
     }
 
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name;
     }
 
