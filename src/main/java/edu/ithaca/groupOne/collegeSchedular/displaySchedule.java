@@ -67,9 +67,9 @@ public class displaySchedule extends JFrame {
                 JLabel mon = new JLabel(c.getName());
                 JLabel wed = new JLabel(c.getName());
                 JLabel fri = new JLabel(c.getName());
-                mon.setBounds(M, timeLoc, 50, 50);
-                wed.setBounds(W, timeLoc, 50, 50);
-                fri.setBounds(F, timeLoc, 50, 50);
+                mon.setBounds(M, timeLoc, 75, 75);
+                wed.setBounds(W, timeLoc, 75, 75);
+                fri.setBounds(F, timeLoc, 75, 75);
                 window.add(mon);
                 window.add(wed);
                 window.add(fri);
@@ -81,8 +81,8 @@ public class displaySchedule extends JFrame {
             if (dayNTime[0].equals("TR")) {
                 JLabel tue = new JLabel(c.getName());
                 JLabel thur = new JLabel(c.getName());
-                tue.setBounds(T, timeLoc, 50, 50);
-                thur.setBounds(R, timeLoc, 50, 50);
+                tue.setBounds(T, timeLoc, 75, 75);
+                thur.setBounds(R, timeLoc, 75, 75);
                 window.add(tue);
                 window.add(thur);
                 JLabel nothing = new JLabel("");
