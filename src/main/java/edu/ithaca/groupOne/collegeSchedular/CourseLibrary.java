@@ -75,4 +75,14 @@ public class CourseLibrary {
             courses.remove(courseID);
         }
     }
+
+    public String toString(){
+        String print = "";
+        for(int i = 0; i< getCourses().size();i++){
+            print += getCourses().get(i).toString();
+
+
+        }
+        return print;
+    }
 }

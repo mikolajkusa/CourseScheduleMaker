@@ -147,6 +147,6 @@ public class Course {
     }
 
     public String toString(){
-        return major + ": " + timeSlot;
+        return major + courseID + ": " + timeSlot +"\n";
     }
 }
