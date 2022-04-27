@@ -60,7 +60,7 @@ public class Schedule {
             startTimes1[1] = c1Start;
             endTimes1[1] = c1End;
         }
-        else if(c1Days.contains("T")){
+        else if(c1Days.contains("Tu")){
             startTimes1[2] = c1Start;
             endTimes1[2] = c1End;
         }
@@ -68,7 +68,7 @@ public class Schedule {
             startTimes1[3] = c1Start;
             endTimes1[3] = c1End;
         }
-        else if(c1Days.contains("R")){
+        else if(c1Days.contains("Th")){
             startTimes1[4] = c1Start;
             endTimes1[4] = c1End;
         }
