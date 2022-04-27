@@ -29,6 +29,8 @@ public class Student extends Person {
     /**
      * Creates a new schedule and adds it to the student's list of schedules
      * @param name : String, the name of the schedule
+     * @post the schedules HashMap puts the schedule in if it is valid
+     * @throws IllegalArgumentException if the name of the schedule added is invalid
      */
     public void createSchedule(String name){
         
@@ -56,6 +58,8 @@ public class Student extends Person {
     /**
      * Removes a schedule from the student's list of schedules
      * @param name : String, schedule's name to remove
+     * @post the schedule named is removed
+     * @throws IllegalArgumentException if the name of the schedule removed does not exist
      */
     public void removeSchedule(String name){
         if(name.length()  <= 0){
