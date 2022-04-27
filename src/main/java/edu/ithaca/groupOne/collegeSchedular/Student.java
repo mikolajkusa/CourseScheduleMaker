@@ -1,11 +1,13 @@
 package edu.ithaca.groupOne.collegeSchedular;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 
 public class Student extends Person {
 
     private String major;
-    private Schedule[] schedules; //think about making this something other than an array - map with key as name or something
+    private HashMap<String, Schedule> schedules; //think about making this something other than an array - map with key as name or something
     private double numCredits;
     private ArrayList<Course> classes;
     
@@ -21,14 +23,27 @@ public class Student extends Person {
         this.password = password;
         numCredits = 18;
         classes = new ArrayList<Course>();
+        schedules = new HashMap<>();
     }
 
     /**
      * Creates a new schedule and adds it to the student's list of schedules
      * @param name : String, the name of the schedule
+     * @post the schedules HashMap puts the schedule in if it is valid
+     * @throws IllegalArgumentException if the name of the schedule added is invalid
      */
     public void createSchedule(String name){
+        
+        if(name.length()  <= 0){
+            throw new IllegalArgumentException("No name for the schedule");
+        }
 
+        if(schedules.containsKey(name)){
+            throw new IllegalArgumentException("Already a schedule with this name");
+        }
+
+        
+        schedules.put(name, new Schedule(name));
     }
 
     /**
@@ -43,9 +58,20 @@ public class Student extends Person {
     /**
      * Removes a schedule from the student's list of schedules
      * @param name : String, schedule's name to remove
+     * @post the schedule named is removed
+     * @throws IllegalArgumentException if the name of the schedule removed does not exist
      */
     public void removeSchedule(String name){
+        if(name.length()  <= 0){
+            throw new IllegalArgumentException("No name for the schedule");
+        }
 
+        if(!schedules.containsKey(name)){
+            throw new IllegalArgumentException("There is no schedule with this name");
+        }
+
+        
+        schedules.remove(name);
     }
 
     /**
@@ -74,8 +100,10 @@ public class Student extends Person {
      * Gets the collection of schedules the student has made
      * @return FIGURE OUT DATA TYPE : All the schedules the student has made
      */
-    public Schedule[] getSchedules(){ //maybe not make it an array, think about data types
-        return schedules;
+    public Schedule[] getSchedules(){ 
+        Collection<Schedule> sch = schedules.values();
+        Schedule[] s = new Schedule[sch.size()];
+        return sch.toArray(new Schedule[0]);
     }
 
     /**
