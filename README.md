@@ -1,4 +1,6 @@
 # CourseScheduleMaker
+Quick start guide:
+Run the main method in ScheduleMaker.java in the tests folder.
 
 Narrative/Scenarios: https://docs.google.com/document/d/1bOhN4tpi8i5I8QEOf7OACyfqd24eZrvQwkqrbvbhtuY/edit?usp=sharing
 
@@ -18,3 +20,5 @@ Sprint review/demo agenda: https://docs.google.com/document/d/1q4X0QQ_ai8XFbp_Yq
 Sprint retrospective: https://docs.google.com/document/d/1UQpf3ZIx9ujaOpTG54l1Yb7WE975_DiqXjtMtUODcSo/edit?usp=sharing
 
 Final Submission:
+Diagrams: https://drive.google.com/file/d/1O1lVflmKJrgWFZMmG-1vMgSoPTUHVyc9/view?usp=sharing
+All of the sequence diagrams are in the same link, the name of the student who worked on it is in the tab name
