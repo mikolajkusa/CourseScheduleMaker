@@ -25,3 +25,4 @@ Note taker - Chris
 Final Submission:
 Diagrams: https://drive.google.com/file/d/1O1lVflmKJrgWFZMmG-1vMgSoPTUHVyc9/view?usp=sharing
 All of the sequence diagrams are in the same link, the name of the student who worked on it is in the tab name
+Final Presentation: https://docs.google.com/presentation/d/15XXsUSvI9RBUZKkaHgSV8e3AYYI0bat4Aed5SvLwn2I/edit?usp=sharing
